@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MuiThemeProvider } from '@material-ui/core';
 import { Header } from './components/Header';
 import muiTheme from './muiTheme';
+
 import './App.module.css';
 
 class App extends Component {
