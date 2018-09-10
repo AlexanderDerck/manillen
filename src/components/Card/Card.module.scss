@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  /* The height/width ratio of svg viewbox.
+   * See: https://github.com/htdebeer/SVG-cards/blob/master/README.md
+   * For transforming the cards after using them, it is good to know that the cards have the following natural dimensions:
+   * - width: 169.075
+   * - height: 244.64
+   * - center: (+98.0375, +122.320) */
+  padding-bottom: calc(100% * 1.44);
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
