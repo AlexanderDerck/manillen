@@ -5,15 +5,17 @@ import styles from './Hand.module.scss';
 
 const Hand = props => {
  
-  const flexBasis = 100 / props.handSize;   // Flex basis = 100% / initial amount of cards in this hand 
-  const children = [].concat(props.children);    // Not required to pass any cards at all!
-  const percentToOverlap = 50;              // The percentage adjucant cards will overlap
+  // Flex basis = 100% / initial amount of cards in this hand 
+  const flexBasis = 100 / props.handSize;   
+  // Not required to pass any cards at all!
+  const children = [].concat(props.children);    
+  // The percentage adjucant cards will overlap
+  const percentToOverlap = 50;              
   /* Align all cards towards center by moving them all right based on current 
    * amount of children - 1 because first child is not translated! */
   const translateX_AlignCenter = (children.length - 1) * (percentToOverlap / 2);   
 
-  const cards = children.map((card, index) => {
-    
+  const cards = children.map((card, index) => {    
     const translateX_Overlap = -percentToOverlap * index;                       
     const translateX = translateX_Overlap + translateX_AlignCenter;    
 
