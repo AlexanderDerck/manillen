@@ -1,6 +1,6 @@
 export const CardSuit = Object.freeze({
-  Hearts: 'hearts',
+  Hearts: 'heart',
   Spades: 'spade',
-  Diamonds: 'diamonds',
-  Clubs: 'clubs'
+  Diamonds: 'diamond',
+  Clubs: 'club'
 });
