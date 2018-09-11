@@ -18,9 +18,13 @@ const Hand = props => {
   const cards = children.map((card, index) => {    
     const translateX_Overlap = -percentToOverlap * index;                       
     const translateX = translateX_Overlap + translateX_AlignCenter;    
+    const style = {
+      flexBasis: `${flexBasis}%`,
+      transform: `translate3d(${translateX}%, 0, 0)`
+    };
 
     return (
-      <div key={index} className={styles.item} style={{ flexBasis: `${flexBasis}%`, transform: `translate3d(${translateX}%, 0, 0)` }}>
+      <div key={index} className={styles.item} style={style}>
         <div className={styles.transitionHover}>
           {card}
         </div>     
