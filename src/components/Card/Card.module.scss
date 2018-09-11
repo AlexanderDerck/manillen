@@ -9,7 +9,7 @@
    * - width: 169.075
    * - height: 244.64
    * - center: (+98.0375, +122.320) */
-  padding-bottom: calc(100% * 1.44);
+  padding-bottom: calc(100% * 1.447);
 }
 
 .card {
@@ -18,4 +18,5 @@
   left: 0;
   height: 100%;
   width: 100%;
+  user-select: none;
 }

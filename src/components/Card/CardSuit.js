@@ -1,4 +1,4 @@
-export const CardType = Object.freeze({
+export const CardSuit = Object.freeze({
   Hearts: 'hearts',
   Spades: 'spade',
   Diamonds: 'diamonds',
