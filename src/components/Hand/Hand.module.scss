@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.item {
+  flex: 0 0;
+}
+
+.transitionHover {
+  transform: translate3d(0, 0, 0);
+  transition: transform .3s;
+}
+
+.transitionHover:hover {
+  cursor: pointer;
+  transform: translate3d(0, -10%, 0);
+  transition: transform .3s;
+}
