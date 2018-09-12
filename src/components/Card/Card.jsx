@@ -6,10 +6,13 @@ import { Card as CardData } from '../../models/card';
 
 const Card = ({card, suit, rank}) => {
   const cardData = card || new CardData(rank, suit);
+  const viewBoxWidth = 169;
+  const viewBoxHeight = 244;
+  const paddingBottomPercent = viewBoxHeight / viewBoxWidth * 100;
 
   return (
-    <div className={styles.container}>
-      <svg viewBox='0 0 169 244' className={styles.card}>
+    <div className={styles.container} style={{paddingBottom: `${paddingBottomPercent}%`}}>
+      <svg viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`} className={styles.card}>
         <CardSvgUse card={cardData} />
       </svg>
     </div>
@@ -22,7 +25,7 @@ Card.propTypes = {
   rank: checkPropType
 };
 
-export { Card }
+export { Card };
 
 function checkPropType(props) {
 

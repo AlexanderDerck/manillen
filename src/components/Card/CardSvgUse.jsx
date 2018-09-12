@@ -29,22 +29,24 @@ const SvgCardSuit = Object.freeze({
   Club: 'club'
 });
 
-const CardSvgUse = ({ card, x, y }) => {
+const CardSvgUse = ({ card, className, x, y }) => {
   const { rank, suit } = card;
   const svgRank = SvgCardRank[rank];
   const svgSuit = SvgCardSuit[suit];
   const fillColor = getFillColor(suit);
 
-  return <use xlinkHref={`${cardSvg}#${svgRank}_${svgSuit}`} x={x} y={y} fill={fillColor}/>;
+  return <use xlinkHref={`${cardSvg}#${svgRank}_${svgSuit}`} x={x} y={y} fill={fillColor} className={className} />;
 };
 
 CardSvgUse.propTypes = {
   card: PropTypes.instanceOf(Card),
+  className: PropTypes.string,
   x: PropTypes.number,
   y: PropTypes.number
 };
 
 CardSvgUse.defaultProps = {
+  className: '',
   x: 0,
   y: 0
 };

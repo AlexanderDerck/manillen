@@ -1,15 +1,12 @@
+/* The relative parent, absolute child trick is not entirely necessary, but the svg
+ * elements I use are not perfect and overflow their svg a bit... 
+ * This trick nicely clips the svgs to the wrapper div */
+
 .container {
   position: relative;
   height: 0;
   width: 100%;
   padding: 0;
-  /* The height/width ratio of svg viewbox.
-   * See: https://github.com/htdebeer/SVG-cards/blob/master/README.md
-   * For transforming the cards after using them, it is good to know that the cards have the following natural dimensions:
-   * - width: 169.075
-   * - height: 244.64
-   * - center: (+98.0375, +122.320) */
-  padding-bottom: calc(100% * 1.447);
 }
 
 .card {
