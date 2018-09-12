@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CardData } from './CardData';
-import { CardSuit } from './CardSuit';
+import { Card, Suit } from '../../models/card';
 
 import cardSvg from '../../assets/svg-cards.svg';
 
@@ -40,7 +39,7 @@ const CardSvgUse = props => {
 };
 
 CardSvgUse.propTypes = {
-  card: PropTypes.instanceOf(CardData),
+  card: PropTypes.instanceOf(Card),
   x: PropTypes.number,
   y: PropTypes.number
 };
@@ -53,11 +52,11 @@ CardSvgUse.defaultProps = {
 export { CardSvgUse }
 
 function getFillColor(suit) {
-  if(suit === CardSuit.Diamonds || suit === CardSuit.Hearts) {
+  if(suit === Suit.Diamonds || suit === Suit.Hearts) {
     return 'red';
   }
 
-  if(suit === CardSuit.Clubs || suit === CardSuit.Spades) {
+  if(suit === Suit.Clubs || suit === Suit.Spades) {
     return 'black';
   }
 

@@ -1,4 +1,4 @@
-export const CardRank = Object.freeze({
+export const Rank = Object.freeze({
   Ace: 1,
   Two: 2,
   Three: 3,

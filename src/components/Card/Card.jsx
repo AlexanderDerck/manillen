@@ -2,7 +2,7 @@ import React from 'react';
 import { CardSvgUse } from './CardSvgUse';
 
 import styles from './Card.module.scss';
-import { CardData } from './CardData';
+import { Card as CardData } from '../../models/card';
 
 const Card = props => {
   const cardData = props.card || new CardData(props.rank, props.suit);
