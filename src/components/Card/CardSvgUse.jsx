@@ -39,7 +39,7 @@ const CardSvgUse = ({ card, className, x, y }) => {
 };
 
 CardSvgUse.propTypes = {
-  card: PropTypes.instanceOf(Card),
+  card: PropTypes.instanceOf(Card).isRequired,
   className: PropTypes.string,
   x: PropTypes.number,
   y: PropTypes.number
