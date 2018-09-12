@@ -4,8 +4,8 @@ import { CardSvgUse } from './CardSvgUse';
 import styles from './Card.module.scss';
 import { Card as CardData } from '../../models/card';
 
-const Card = props => {
-  const cardData = props.card || new CardData(props.rank, props.suit);
+const Card = ({card, suit, rank}) => {
+  const cardData = card || new CardData(rank, suit);
 
   return (
     <div className={styles.container}>
@@ -24,7 +24,7 @@ Card.propTypes = {
 
 export { Card }
 
-function checkPropType(props, propName, componentName) {
+function checkPropType(props) {
 
   if(props.card) {
     if((props.rank || props.suit)) {

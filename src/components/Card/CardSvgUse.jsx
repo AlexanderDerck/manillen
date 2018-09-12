@@ -29,13 +29,13 @@ const SvgCardSuit = Object.freeze({
   Club: 'club'
 });
 
-const CardSvgUse = props => {
-  const { rank, suit } = props.card;
+const CardSvgUse = ({ card, x, y }) => {
+  const { rank, suit } = card;
   const svgRank = SvgCardRank[rank];
   const svgSuit = SvgCardSuit[suit];
   const fillColor = getFillColor(suit);
 
-  return <use xlinkHref={`${cardSvg}#${svgRank}_${svgSuit}`} x={props.x} y={props.y} fill={fillColor}/>;
+  return <use xlinkHref={`${cardSvg}#${svgRank}_${svgSuit}`} x={x} y={y} fill={fillColor}/>;
 };
 
 CardSvgUse.propTypes = {
