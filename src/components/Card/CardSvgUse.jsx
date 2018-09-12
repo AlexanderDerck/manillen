@@ -1,22 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CardRank } from './CardRank';
+import { CardData } from './CardData';
 import { CardSuit } from './CardSuit';
 
 import cardSvg from '../../assets/svg-cards.svg';
 
-const CardSvgUse = props => {
-  const fillColor = getFillColor(props.suit);
+// Ranks as used in 'cardSvg' mapped from 'CardRank'
+const SvgCardRank = Object.freeze({
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5',
+  6: '6',
+  7: '7',
+  8: '8',
+  9: '9',
+  10: '10',
+  11: 'jack',
+  12: 'queen',
+  13: 'king'
+});
 
-  return <use xlinkHref={`${cardSvg}#${props.rank}_${props.suit}`} x={props.x} y={props.y} fill={fillColor}/>;
+// Suits as used in 'cardSvg' mapped from 'CardSuit'
+const SvgCardSuit = Object.freeze({
+  Heart: 'heart',
+  Spade: 'spade',
+  Diamond: 'diamond',
+  Club: 'club'
+});
+
+const CardSvgUse = props => {
+  const { rank, suit } = props.card;
+  const svgRank = SvgCardRank[rank];
+  const svgSuit = SvgCardSuit[suit];
+  const fillColor = getFillColor(suit);
+
+  return <use xlinkHref={`${cardSvg}#${svgRank}_${svgSuit}`} x={props.x} y={props.y} fill={fillColor}/>;
 };
 
-const ranks = Object.keys(CardRank).map(propName => CardRank[propName]);
-const suits = Object.keys(CardSuit).map(propName => CardSuit[propName]);
-
 CardSvgUse.propTypes = {
-  rank: PropTypes.oneOf(ranks).isRequired,
-  suit: PropTypes.oneOf(suits).isRequired,
+  card: PropTypes.instanceOf(CardData),
   x: PropTypes.number,
   y: PropTypes.number
 };
