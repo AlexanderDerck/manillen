@@ -33,9 +33,12 @@ const CardSvgUse = ({ card, className, x, y }) => {
   const { rank, suit } = card;
   const svgRank = SvgCardRank[rank];
   const svgSuit = SvgCardSuit[suit];
+  const xlinkHref = `${cardSvg}#${svgRank}_${svgSuit}`;
   const fillColor = getFillColor(suit);
 
-  return <use xlinkHref={`${cardSvg}#${svgRank}_${svgSuit}`} x={x} y={y} fill={fillColor} className={className} />;
+  return (
+    <use x={x} y={y} xlinkHref={xlinkHref} fill={fillColor} className={className} />
+  );
 };
 
 CardSvgUse.propTypes = {

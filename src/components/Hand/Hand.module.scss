@@ -1,6 +1,7 @@
 /* The relative parent, absolute child trick is not entirely necessary, but the svg
  * elements I use are not perfect and overflow their svg a bit... 
- * This trick nicely clips the svgs to the wrapper div */
+ * This trick (+ set padding-bottom in component based on viewBox height/width ratio!) 
+ * nicely clips the svgs to the wrapper div */
 
 .container {
   position: relative;
