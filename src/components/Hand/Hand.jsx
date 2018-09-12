@@ -11,7 +11,7 @@ class Hand extends React.Component {
     super(props);
 
     this.state = {
-      cards: new Array(props.size).fill(new Card(Rank.Ace, Suit.Spades))
+      cards: new Array(8).fill(new Card(Rank.Ace, Suit.Spades))
     };
   }
 
@@ -27,7 +27,7 @@ class Hand extends React.Component {
     const maxAmountCards = this.props.maxAmountCards;
     /* Move x coordinate by amount of cards that are gone * 1/4 viewbox width 
      * of a card (n * 'half a card' gone and there needs to be space on other 
-     * side as well! */
+     * side as well -> divide by 2 * 2! */
     const xCoordinate = (maxAmountCards - amountOfCards) * cardViewBoxWidth / 4;
     /* Full viewbox = 8x card, but all but one card are half covered
      * by the others, so subtract (n-1) times half card width */ 

@@ -12,13 +12,13 @@ class App extends Component {
       <MuiThemeProvider theme={muiTheme}>
         <Header />  
         <div style={{width: 1000, margin: 20, border: '3px solid red'}}>
-          <Hand size={20} maxAmountCards={20}/>
+          <Hand maxAmountCards={20}/>
         </div> 
         <div style={{width: 200, margin: 20, border: '3px solid red'}}>
           <Card suit={Suit.Hearts} rank={Rank.Jack} />
         </div> 
         <div style={{width: 1000, margin: 20, border: '3px solid red'}}>
-          <Hand size={3} maxAmountCards={8}/>
+          <Hand maxAmountCards={8}/>
         </div> 
       </MuiThemeProvider>
     );
