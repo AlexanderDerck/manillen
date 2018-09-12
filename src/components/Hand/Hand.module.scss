@@ -1,0 +1,31 @@
+/* The relative parent, absolute child trick is not entirely necessary, but the svg
+ * elements I use are not perfect and overflow their svg a bit... 
+ * This trick nicely clips the svgs to the wrapper div */
+
+.container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.hand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  overflow: visible; /* Allow css transforms to be visible outside of box! */
+}
+
+.cardHover {
+  transform: translate3d(0, 0, 0);
+  transition: transform .2s;
+}
+
+.cardHover:hover {
+  cursor: pointer;
+  transform: translate3d(0, -10%, 0);
+  transition: transform .3s;
+}
