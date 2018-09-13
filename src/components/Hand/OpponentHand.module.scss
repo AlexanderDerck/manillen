@@ -1,0 +1,20 @@
+/* The relative parent, absolute child trick is not entirely necessary, but the svg
+ * elements I use are not perfect and overflow their svg a bit... 
+ * This trick (+ set padding-bottom in component based on viewBox height/width ratio!) 
+ * nicely clips the svgs to the wrapper div */
+
+ .container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.hand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+}
