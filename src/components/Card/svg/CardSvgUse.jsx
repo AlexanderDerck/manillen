@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Suit } from '../../models/card';
+import { Card, Suit } from 'models/card';
 
-import cardSvg from '../../assets/svg-cards.svg';
+import cardSvg from 'assets/svg-cards.svg';
 
 // Ranks as used in 'cardSvg' mapped from 'CardRank'
 const SvgCardRank = Object.freeze({
