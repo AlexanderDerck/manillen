@@ -10,41 +10,46 @@ const GameField = ({ playerCards, fellowPlayerCards, opponent1Cards, opponent2Ca
   return (
     <div className={styles.container}>
 
+      {/* Horizontal opponent row */}
+      <Hidden mdDown>
+        <Row>
+
+          <Hidden mdDown>
+            <Column lg={2} style={{backgroundColor: 'red'}}></Column>
+          </Hidden>   
+
+          <Column xs={12} lg={8} style={{backgroundColor: 'red'}}>
+            <OpponentHand horizontal amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
+          </Column>
+
+          <Hidden mdDown>
+            <Column lg={2} style={{backgroundColor: 'red'}}></Column>
+          </Hidden>        
+        </Row>
+      </Hidden>
+
+      {/* Gamefield + vertical opponents */}
       <Row>
-
-        <Hidden lgDown>
-          <Column lg={2} style={{backgroundColor: 'red'}}></Column>
-        </Hidden>   
-
-        <Column xs={12} lg={8} style={{backgroundColor: 'red'}}>
-          <OpponentHand horizontal amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
-        </Column>
-
-        <Hidden lgDown>
-          <Column lg={2} style={{backgroundColor: 'red'}}></Column>
-        </Hidden>        
-      </Row>
-
-      <Row>
-        <Hidden lgDown>
+        <Hidden mdDown>
           <Column lg={2} style={{backgroundColor: 'red'}}>
             <OpponentHand vertical amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
           </Column>
         </Hidden>
         
-        <Column xs={12} lg={8} style={{backgroundColor: 'green'}}>
+        <Column xs={12} lg={8} style={{backgroundColor: 'green', minHeight: 300}}>
         
         </Column>
         
-        <Hidden lgDown>
+        <Hidden mdDown>
           <Column lg={2} style={{backgroundColor: 'red'}}>
             <OpponentHand vertical amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
           </Column>
         </Hidden>
       </Row>
 
+      {/* Player row */}
       <Row>
-        <Hidden lgDown>
+        <Hidden mdDown>
           <Column lg={2} style={{backgroundColor: 'red'}}></Column>
         </Hidden>
         
@@ -52,7 +57,7 @@ const GameField = ({ playerCards, fellowPlayerCards, opponent1Cards, opponent2Ca
           <OpponentHand horizontal amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
         </Column>
         
-        <Hidden lgDown>
+        <Hidden mdDown>
           <Column lg={2} style={{backgroundColor: 'red'}}></Column>
         </Hidden>
       </Row>
