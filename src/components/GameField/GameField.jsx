@@ -3,73 +3,62 @@ import PropTypes from 'prop-types';
 import { Hidden } from '@material-ui/core';
 import { Column, Row } from '../_common/Grid';
 import { Hand, OpponentHand } from '../Hand';
-import { Card } from 'models/card';
 import styles from './GameField.module.scss';
 
-const GameField = ({ playerCards, fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
+const GameField = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
   return (
     <div className={styles.container}>
 
       {/* Horizontal opponent row */}
-      <Hidden mdDown>
-        <Row>
-
-          <Hidden mdDown>
-            <Column lg={2} style={{backgroundColor: 'red'}}></Column>
-          </Hidden>   
-
-          <Column xs={12} lg={8} style={{backgroundColor: 'red'}}>
-            <OpponentHand horizontal amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
-          </Column>
-
-          <Hidden mdDown>
-            <Column lg={2} style={{backgroundColor: 'red'}}></Column>
-          </Hidden>        
-        </Row>
-      </Hidden>
+      <Row className={styles.topRowHeight}>
+        <Column lg={6}>
+          <div className={styles.horizontalHandContainer}>
+            <OpponentHand horizontal amountOfCards={fellowPlayerCards} maxAmountOfCards={8}></OpponentHand>
+          </div>          
+        </Column>
+      </Row>
 
       {/* Gamefield + vertical opponents */}
-      <Row>
-        <Hidden mdDown>
-          <Column lg={2} style={{backgroundColor: 'red'}}>
-            <OpponentHand vertical amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
-          </Column>
-        </Hidden>
+      <Row className={styles.middleRowHeight}>
+        <Column lg={3}>
+          <div className={styles.verticalHandContainer}>
+            <OpponentHand vertical amountOfCards={opponent1Cards} maxAmountOfCards={8}></OpponentHand>
+          </div>         
+        </Column>
         
-        <Column xs={12} lg={8} style={{backgroundColor: 'green', minHeight: 300}}>
+        <Column lg={6}>
         
         </Column>
         
-        <Hidden mdDown>
-          <Column lg={2} style={{backgroundColor: 'red'}}>
-            <OpponentHand vertical amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
-          </Column>
-        </Hidden>
+        <Column lg={3}>
+          <div className={styles.verticalHandContainer}>
+            <OpponentHand vertical amountOfCards={opponent1Cards} maxAmountOfCards={8}></OpponentHand>
+          </div>         
+        </Column>
       </Row>
 
       {/* Player row */}
-      <Row>
-        <Hidden mdDown>
-          <Column lg={2} style={{backgroundColor: 'red'}}></Column>
-        </Hidden>
-        
-        <Column xs={12} lg={8} style={{backgroundColor: 'red'}}>
-          <OpponentHand horizontal amountOfCards={8} maxAmountOfCards={8}></OpponentHand>
+      <Row className={styles.bottomRowHeight}>      
+        <Column lg={6}>
+        <div className={styles.horizontalHandContainer}>
+          <Hand maxAmountOfCards={8} />
+        </div>         
         </Column>
-        
-        <Hidden mdDown>
-          <Column lg={2} style={{backgroundColor: 'red'}}></Column>
-        </Hidden>
       </Row>
     </div>
   );
 };
 
-// GameField.propTypes = {
-//   playerCards: PropTypes.arrayOf(Card).isRequired,
-//   fellowPlayerCards: PropTypes.number.isRequired,
-//   opponent1Cards: PropTypes.number.isRequired,
-//   opponent2Cards: PropTypes.number.isRequired
-// };
+GameField.propTypes = {
+  fellowPlayerCards: PropTypes.number,
+  opponent1Cards: PropTypes.number,
+  opponent2Cards: PropTypes.number
+};
+
+GameField.defaultProps = {
+  fellowPlayerCards: 8,
+  opponent1Cards: 8,
+  opponent2Cards: 8
+};
 
 export { GameField };

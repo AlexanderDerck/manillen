@@ -1,3 +1,31 @@
+@import '../../variables';
+
 .container {
   height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: green;
+}
+
+// 50% of grid width, horizontal hand dimensions based on width
+.horizontalHandContainer {
+  // width: $cardHeight / $cardWidth * 50%;
+}
+
+// 25% of grid width, vertical hand dimensions based on width as well => adjust ratio!
+.verticalHandContainer {
+  /* Hand dimensions:
+   * Horizontal: 400 x 128.33
+   * Vertical: 200 x 623.36
+   * => Find out where .3208 ratio comes from! */
+  width: .3208 * 100% * 2; // Do *2 because grid width 25% instead of horizontal one of 50%
+  margin: 0 auto;
+}
+
+.topRowHeight, .bottomRowHeight {
+  height: 25%;
+}
+
+.middleRowHeight {
+  height: 50%;
 }

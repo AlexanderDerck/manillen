@@ -11,16 +11,10 @@ class App extends Component {
       <MuiThemeProvider theme={muiTheme}>
         <Header />  
 
-        <div style={{width: 600, height: 600}}>
+        <div style={{width: 800, height: 800, margin: 20}}>
           <GameField></GameField>
         </div>
-        
-        {/* <div style={{width: 600, margin:20, border: '3px solid red'}}>
-          <OpponentHand amountOfCards={6} maxAmountOfCards={8} />
-        </div>
-        <div style={{width: 200, margin: 20, border: '3px solid red'}}>
-          <OpponentHand amountOfCards={6} maxAmountOfCards={8} vertical />
-        </div>  */}
+
       </MuiThemeProvider>
     );
   }
