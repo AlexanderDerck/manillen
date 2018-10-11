@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Hidden } from '@material-ui/core';
 import { Column, Row } from '../_common/Grid';
 import { Hand, OpponentHand } from '../Hand';
 import styles from './GameField.module.scss';
@@ -40,7 +39,7 @@ const GameField = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
       {/* Player row */}
       <Row className={styles.bottomRowHeight}>      
         <Column lg={6}>
-        <div className={styles.horizontalHandContainer}>
+        <div>
           <Hand maxAmountOfCards={8} />
         </div>         
         </Column>
