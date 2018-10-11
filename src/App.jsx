@@ -11,7 +11,7 @@ class App extends Component {
         <Header />  
 
         <div style={{width: 800, height: 800, margin: 20}}>
-          <GameField></GameField>
+          <GameField fellowPlayerCards={8} opponent1Cards={8} opponent2Cards={8}></GameField>
         </div>
 
       </MuiThemeProvider>

@@ -31,7 +31,7 @@ const GameField = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
         
         <Column lg={3}>
           <div className={styles.verticalHandContainer}>
-            <OpponentHand vertical amountOfCards={opponent1Cards} maxAmountOfCards={8}></OpponentHand>
+            <OpponentHand vertical amountOfCards={opponent2Cards} maxAmountOfCards={8}></OpponentHand>
           </div>         
         </Column>
       </Row>
@@ -49,15 +49,9 @@ const GameField = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
 };
 
 GameField.propTypes = {
-  fellowPlayerCards: PropTypes.number,
-  opponent1Cards: PropTypes.number,
-  opponent2Cards: PropTypes.number
-};
-
-GameField.defaultProps = {
-  fellowPlayerCards: 8,
-  opponent1Cards: 8,
-  opponent2Cards: 8
+  fellowPlayerCards: PropTypes.number.isRequired,
+  opponent1Cards: PropTypes.number.isRequired,
+  opponent2Cards: PropTypes.number.isRequired
 };
 
 export { GameField };
