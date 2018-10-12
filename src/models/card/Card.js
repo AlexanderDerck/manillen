@@ -1,9 +1,9 @@
-import { Rank } from './constants/Rank';
-import { Suit } from './constants/Suit';
+import { Ranks } from 'constants/card';
+import { Suits } from 'constants/card';
 
 export class Card {
-  static ranks = Object.keys(Rank).map(propName => Rank[propName]);
-  static suits = Object.keys(Suit).map(propName => Suit[propName]);
+  static ranks = Object.keys(Ranks).map(propName => Ranks[propName]);
+  static suits = Object.keys(Suits).map(propName => Suits[propName]);
 
   constructor(rank, suit) {
     if(!Card.ranks.some(val => val === rank)) {

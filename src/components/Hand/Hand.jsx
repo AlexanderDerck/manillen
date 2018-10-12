@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CardSvgUse } from '../Card/svg/CardSvgUse';
-import { Card, Rank, Suit } from 'models/card';
+import { Card } from 'models/card';
+import { Ranks, Suits } from 'constants/card';
 
 import styles from './Hand.module.scss';
 
@@ -11,7 +12,7 @@ class Hand extends React.Component {
     super(props);
 
     this.state = {
-      cards: new Array(8).fill(new Card(Rank.Ace, Suit.Spades))
+      cards: new Array(8).fill(new Card(Ranks.Ace, Suits.Spades))
     };
   }
 

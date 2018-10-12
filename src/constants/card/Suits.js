@@ -1,4 +1,4 @@
-export const Suit = Object.freeze({
+export const Suits = Object.freeze({
   Hearts: 'Heart',
   Spades: 'Spade',
   Diamonds: 'Diamond',

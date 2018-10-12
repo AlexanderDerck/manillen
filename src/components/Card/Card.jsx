@@ -1,8 +1,8 @@
 import React from 'react';
 import { CardSvgUse } from './svg/CardSvgUse';
-
-import styles from './Card.module.scss';
 import { Card as CardData } from 'models/card';
+import styles from './Card.module.scss';
+
 
 const Card = ({card, suit, rank}) => {
   const cardData = card || new CardData(rank, suit);
