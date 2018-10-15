@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HandContainer from '../../containers/HandContainer';
 import { Column, Row } from '../_common/Grid';
-import { Hand, OpponentHand } from '../Hand';
+import { OpponentHand } from '../Hand';
 import styles from './GameField.module.scss';
 
 const GameField = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
@@ -40,7 +41,7 @@ const GameField = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
       <Row className={styles.bottomRowHeight}>      
         <Column lg={6}>
         <div>
-          <Hand maxAmountOfCards={8} />
+          <HandContainer maxAmountOfCards={8} />
         </div>         
         </Column>
       </Row>

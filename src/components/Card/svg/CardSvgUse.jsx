@@ -30,7 +30,7 @@ const SvgCardSuit = Object.freeze({
   Club: 'club'
 });
 
-const CardSvgUse = ({ card, className, x, y }) => {
+const CardSvgUse = ({ card, className, x, y, onClick }) => {
   const { rank, suit } = card;
   const svgRank = SvgCardRank[rank];
   const svgSuit = SvgCardSuit[suit];
@@ -38,7 +38,7 @@ const CardSvgUse = ({ card, className, x, y }) => {
   const fillColor = getFillColor(suit);
 
   return (
-    <use x={x} y={y} xlinkHref={xlinkHref} fill={fillColor} className={className} />
+    <use x={x} y={y} xlinkHref={xlinkHref} fill={fillColor} className={className} onClick={onClick} />
   );
 };
 
@@ -46,13 +46,15 @@ CardSvgUse.propTypes = {
   card: PropTypes.instanceOf(Card).isRequired,
   className: PropTypes.string,
   x: PropTypes.number,
-  y: PropTypes.number
+  y: PropTypes.number,
+  onClick: PropTypes.func
 };
 
 CardSvgUse.defaultProps = {
   className: '',
   x: 0,
-  y: 0
+  y: 0,
+  onclick: () => {}
 };
 
 export { CardSvgUse }
