@@ -1,6 +1,6 @@
 # manillen-client
 
-The frontend project for [manillen](https://nl.wikipedia.org/wiki/Manillen) a Flemish card game.
+The frontend project for [manillen](https://nl.wikipedia.org/wiki/Manillen) a Flemish 2v2 (most popular) card game.
 Technology stack:
 
 - [React](https://reactjs.org/)
