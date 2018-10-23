@@ -1,9 +1,12 @@
 # manillen-client
 
 The frontend project for [manillen](https://nl.wikipedia.org/wiki/Manillen) a Flemish card game.
-Stack:
+Technology stack:
 
-- React
-- Redux
-- Rxjs
-- Sass (with css modules)
+- [React](https://reactjs.org/)
+- [React-Redux](https://react-redux.js.org/)
+- [Redux-Observable](https://redux-observable.js.org/)
+- [Sass](https://sass-lang.com/)
+- [Css modules with webpack 4](https://webpack.js.org/)
+- [Material UI](https://material-ui.com/)
+
