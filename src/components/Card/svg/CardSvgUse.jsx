@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'models/card';
+import { Card } from 'models';
 import { Suits } from 'constants/card';
 
 import cardSvg from 'assets/svg-cards.svg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CardSvgUse } from '../Card/svg/CardSvgUse';
-import { Card } from 'models/card';
+import { Card } from 'models';
 
 import styles from './Hand.module.scss';
 

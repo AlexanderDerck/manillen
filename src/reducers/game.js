@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import types from '../constants/actionTypes';
-import { Card } from '../models/card';
+import { Card } from '../models';
 import { Ranks, Suits } from '../constants/card';
 
 const initialCards = [
