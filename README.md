@@ -6,6 +6,7 @@ Technology stack:
 - [React](https://reactjs.org/)
 - [React-Redux](https://react-redux.js.org/)
 - [Redux-Observable](https://redux-observable.js.org/)
+- [Typescript](https://www.typescriptlang.org/)
 - [Sass](https://sass-lang.com/)
 - [Css modules with webpack 4](https://webpack.js.org/)
 - [Material UI](https://material-ui.com/)
