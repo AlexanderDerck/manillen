@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CardBackSvgUse } from '../Card/svg/CardBackSvgUse';
+import { CardBackSvgUse } from '../../Card/svg/CardBackSvgUse';
 
-import styles from './OpponentHand.module.scss';
+import styles from '../HandBack.module.scss';
 
-const HorizontalOpponentHand = ({ amountOfCards, maxAmountOfCards }) => {
+const HorizontalHandBack = ({ amountOfCards, maxAmountOfCards }) => {
 
     // The default ViewBox of an svg card
     const cardViewBoxWidth = 169;
@@ -34,14 +34,14 @@ const HorizontalOpponentHand = ({ amountOfCards, maxAmountOfCards }) => {
     );
 };
 
-HorizontalOpponentHand.propTypes = {
+HorizontalHandBack.propTypes = {
   amountOfCards: PropTypes.number,
   maxAmountOfCards: PropTypes.number
 };
 
-HorizontalOpponentHand.defaultProps = {
+HorizontalHandBack.defaultProps = {
   amountOfCards: 8,
   maxAmountOfCards: 8
 };
 
-export { HorizontalOpponentHand };
+export { HorizontalHandBack };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HorizontalOpponentHand } from './HorizontalOpponentHand';
-import { VerticalOpponentHand } from './VerticalOpponentHand';
+import { HorizontalHandBack } from './Back/HorizontalHandBack';
+import { VerticalHandBack } from './Back/VerticalHandBack';
 
 const OpponentHand = ({ horizontal, vertical, ...props }) => {
   if(horizontal && vertical) {
@@ -10,8 +10,8 @@ const OpponentHand = ({ horizontal, vertical, ...props }) => {
 
   // So if none is specified, horizontal is the default
   return vertical 
-    ? <VerticalOpponentHand {...props} />
-    : <HorizontalOpponentHand {...props} />;
+    ? <VerticalHandBack {...props} />
+    : <HorizontalHandBack {...props} />;
 }
 
 OpponentHand.propTypes = {
