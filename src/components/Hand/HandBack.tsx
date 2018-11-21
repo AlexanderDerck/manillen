@@ -1,10 +1,8 @@
 import React from 'react';
-import { HorizontalHandBack } from './Back/HorizontalHandBack';
-import { VerticalHandBack } from './Back/VerticalHandBack';
+import { HorizontalHandBack, HorizontalHandBackProps } from './transformations/HorizontalHandBack';
+import { VerticalHandBack, VerticalHandBackProps } from './transformations/VerticalHandBack';
 
-export interface HandBackProps {
-  amountOfCards: number,
-  maxAmountOfCards: number,
+export interface HandBackProps extends HorizontalHandBackProps, VerticalHandBackProps {
   vertical?: boolean
 };
 

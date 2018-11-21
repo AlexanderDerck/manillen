@@ -4,8 +4,8 @@ import { CardBackSvgUse } from '../../Card/svg/CardBackSvgUse';
 import styles from '../HandBack.module.scss';
 
 export interface VerticalHandBackProps {
-  amountOfCards: number,
-  maxAmountOfCards: number
+  amountOfCards?: number,
+  maxAmountOfCards?: number
 };
 
 const VerticalHandBack: React.SFC<VerticalHandBackProps> = ({ amountOfCards = 8, maxAmountOfCards = 8 }) => {
