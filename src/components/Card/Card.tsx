@@ -1,24 +1,11 @@
 import React from 'react';
-import { CardSvgUse } from './svg/CardSvgUse';
-import { Card as CardData } from '../../models';
-import styles from './Card.module.scss';
+import { HorizontalCardProps, HorizontalCard } from './transformations/HorizontalCard';
+import { VerticalCardProps, VerticalCard } from './transformations/VerticalCard';
 
-export interface CardProps {
-  card: CardData
+export interface CardProps extends HorizontalCardProps, VerticalCardProps {
+  horizontal?: boolean
 };
 
-const Card: React.SFC<CardProps> = ({ card }) => {
-  const viewBoxWidth = 169;
-  const viewBoxHeight = 244;
-  const paddingBottomPercent = viewBoxHeight / viewBoxWidth * 100;
-
-  return (
-    <div className={styles.container} style={{paddingBottom: `${paddingBottomPercent}%`}}>
-      <svg viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`} className={styles.card}>
-        <CardSvgUse card={card} />
-      </svg>
-    </div>
-  );
-}
-
-export { Card };
+export const Card: React.SFC<CardProps> = ({ horizontal = false, ...props }) => horizontal
+  ? <HorizontalCard {...props} />
+  : <VerticalCard {...props} />;

@@ -9,17 +9,18 @@ export interface CardSvgUseProps {
   className?: string,
   x?: number,
   y?: number,
+  rotate?: number,
   onClick?: () => void
 };
 
-const CardSvgUse: React.SFC<CardSvgUseProps> = ({ card, className = '', x = 0, y = 0, onClick = () => {} }) => {
+const CardSvgUse: React.SFC<CardSvgUseProps> = ({ card, className = '', x = 0, y = 0, rotate = 0, onClick = () => {} }) => {
   const svgRank = getSvgCardRank(card.rank);
   const svgSuit = getSvgCardSuit(card.suit);
   const xlinkHref = `${cardSvg}#${svgRank}_${svgSuit}`;
   const fillColor = getFillColor(card.suit);
 
   return (
-    <use x={x} y={y} xlinkHref={xlinkHref} fill={fillColor} className={className} onClick={onClick} />
+    <use x={x} y={y} xlinkHref={xlinkHref} fill={fillColor} className={className} transform={`rotate(${rotate})`} onClick={onClick} />
   );
 };
 
