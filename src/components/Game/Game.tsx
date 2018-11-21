@@ -4,10 +4,14 @@ import { Column, Row } from '../_common/Grid';
 import { HandBack } from '../Hand';
 import { StateProps } from '../../containers/GameContainer';
 import styles from './Game.module.scss';
+import { GameField } from '../GameField/GameField';
 
 export interface GameProps extends StateProps { };
 
-const Game: React.SFC<GameProps> = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
+/**
+ * The full game with all the different player hands and gamefield in the middle
+ */
+const Game: React.SFC<GameProps> = props => {
   return (
     <div className={styles.container}>
 
@@ -15,7 +19,7 @@ const Game: React.SFC<GameProps> = ({ fellowPlayerCards, opponent1Cards, opponen
       <Row className={styles.topRowHeight}>
         <Column lg={6}>
           <div className={styles.horizontalHandContainer}>
-            <HandBack amountOfCards={fellowPlayerCards} maxAmountOfCards={8}></HandBack>
+            <HandBack amountOfCards={props.fellowPlayerCards} maxAmountOfCards={8}></HandBack>
           </div>          
         </Column>
       </Row>
@@ -24,17 +28,22 @@ const Game: React.SFC<GameProps> = ({ fellowPlayerCards, opponent1Cards, opponen
       <Row className={styles.middleRowHeight}>
         <Column lg={3}>
           <div className={styles.verticalHandContainer}>
-            <HandBack vertical amountOfCards={opponent1Cards} maxAmountOfCards={8}></HandBack>
+            <HandBack vertical amountOfCards={props.opponent1Cards} maxAmountOfCards={8}></HandBack>
           </div>         
         </Column>
         
-        <Column lg={6}>
-        
+        <Column lg={6} className="height-100">
+          <GameField 
+            playerCard={props.playerPlayedCard} 
+            fellowPlayerCard={props.fellowPlayerPlayedCard} 
+            opponent1Card={props.opponent1PlayedCard} 
+            opponent2Card={props.opponent2PlayedCard} 
+          />
         </Column>
         
         <Column lg={3}>
           <div className={styles.verticalHandContainer}>
-            <HandBack vertical amountOfCards={opponent2Cards} maxAmountOfCards={8}></HandBack>
+            <HandBack vertical amountOfCards={props.opponent2Cards} maxAmountOfCards={8}></HandBack>
           </div>         
         </Column>
       </Row>

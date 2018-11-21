@@ -14,51 +14,51 @@ const initialCards = [
   { rank: Ranks.King, suit: Suits.Spades },
   { rank: Ranks.Ace, suit: Suits.Spades }
 ];
+const initialState: GameState = {
+  playerCards: initialCards,
+  fellowPlayerCards: 8,
+  opponent1Cards: 8,
+  opponent2Cards: 8,
+  playerPlayedCard: undefined,
+  fellowPlayerPlayedCard: undefined,
+  opponent1PlayedCard: undefined,
+  opponent2PlayedCard: undefined
+};
 
-function playerCards(state: Card[] = initialCards, action: PlayerPickedCard) {
+export function game(state: GameState = initialState, action: GameAction): GameState {
   switch(action.type) {
     case ActionTypes.GAME_PLAYER_PICKED_CARD: {
-      const pickedCard = action.card;
-      return state.filter(card => card.suit !== pickedCard.suit || card.rank !== pickedCard.rank);
+      return {
+        ...state,
+        playerPlayedCard: action.card,
+        playerCards: state.playerCards.filter(card => 
+          card.suit !== action.card.suit ||
+          card.rank !== action.card.rank
+        )
+      };      
     }
-    default:
-      return state;
-  }
-}
-
-function fellowPlayerCards(state = 8, action: FellowPlayerPickedCard) {
-  switch(action.type) {
     case ActionTypes.GAME_FELLOWPLAYER_PICKED_CARD: {
-      return --state;
+      return {
+        ...state,
+        fellowPlayerPlayedCard: action.card,
+        fellowPlayerCards: --state.fellowPlayerCards
+      };
     }
-    default:
-      return state;
-  }
-}
-
-function opponent1Cards(state = 8, action: Opponent1PickedCard) {
-  switch(action.type) {
     case ActionTypes.GAME_OPPONENT1_PICKED_CARD: {
-      return --state;
+      return {
+        ...state,
+        opponent1PlayedCard: action.card,
+        opponent1Cards: --state.opponent1Cards
+      };
     }
-    default:
-      return state;
-  }
-}
-
-function opponent2Cards(state = 8, action: Opponent2PickedCard) {
-  switch(action.type) {
     case ActionTypes.GAME_OPPONENT2_PICKED_CARD: {
-      return --state;
+      return {
+        ...state,
+        opponent2PlayedCard: action.card,
+        opponent2Cards: --state.opponent2Cards
+      };
     }
     default:
       return state;
   }
 }
-
-export const game: Reducer<GameState, GameAction> = combineReducers({
-  playerCards,
-  fellowPlayerCards,
-  opponent1Cards,
-  opponent2Cards
-});

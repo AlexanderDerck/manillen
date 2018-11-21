@@ -17,22 +17,28 @@ export const playerPickedCard = (card: Card): PlayerPickedCard => ({
 });
 
 export interface FellowPlayerPickedCard {
-  type: ActionTypes.GAME_FELLOWPLAYER_PICKED_CARD
+  type: ActionTypes.GAME_FELLOWPLAYER_PICKED_CARD,
+  card: Card
 };
-export const fellowPlayerPickedCard = (): FellowPlayerPickedCard => ({
-  type: ActionTypes.GAME_FELLOWPLAYER_PICKED_CARD
+export const fellowPlayerPickedCard = (card: Card): FellowPlayerPickedCard => ({
+  type: ActionTypes.GAME_FELLOWPLAYER_PICKED_CARD,
+  card
 });
 
 export interface Opponent1PickedCard {
-  type: ActionTypes.GAME_OPPONENT1_PICKED_CARD
+  type: ActionTypes.GAME_OPPONENT1_PICKED_CARD,
+  card: Card
 };
-export const opponent1PickedCard = (): Opponent1PickedCard => ({
-  type: ActionTypes.GAME_OPPONENT1_PICKED_CARD
+export const opponent1PickedCard = (card: Card): Opponent1PickedCard => ({
+  type: ActionTypes.GAME_OPPONENT1_PICKED_CARD,
+  card
 });
 
 export interface Opponent2PickedCard {
-  type: ActionTypes.GAME_OPPONENT2_PICKED_CARD
+  type: ActionTypes.GAME_OPPONENT2_PICKED_CARD,
+  card: Card
 };
-export const opponent2PickedCard = (): Opponent2PickedCard => ({
-  type: ActionTypes.GAME_OPPONENT2_PICKED_CARD
+export const opponent2PickedCard = (card: Card): Opponent2PickedCard => ({
+  type: ActionTypes.GAME_OPPONENT2_PICKED_CARD,
+  card
 });

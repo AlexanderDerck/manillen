@@ -14,7 +14,7 @@ const Hand: React.SFC<HandProps> = ({ cards, maxAmountOfCards = 8, pickCard }) =
   const cardViewBoxWidth = 169;
   const cardComponents = cards.map((card, index) => 
     <CardSvgUse 
-      key={index} 
+      key={`${card.suit}_${card.rank}`} 
       card={card} 
       x={index * cardViewBoxWidth / 2} 
       className={styles.cardHover} 
