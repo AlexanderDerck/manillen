@@ -1,6 +1,6 @@
 import { connect} from 'react-redux';
 import { State } from '../state';
-import { GameField } from '../components/GameField';
+import { Game } from '../components/Game';
 
 export interface StateProps {
   fellowPlayerCards: number,
@@ -13,4 +13,4 @@ const mapStateToProps = (state: State): StateProps => ({
   opponent2Cards: state.game.opponent2Cards
 });
 
-export const GameFieldContainer = connect(mapStateToProps)(GameField);
+export const GameContainer = connect(mapStateToProps)(Game);

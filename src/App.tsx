@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MuiThemeProvider } from '@material-ui/core';
 import { Header } from './components/Header';
 import muiTheme from './muiTheme';
-import { GameFieldContainer } from './containers/GameFieldContainer';
+import { GameContainer } from './containers/GameContainer';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
         <Header />  
 
         <div style={{width: 800, height: 800, margin: 20}}>
-          <GameFieldContainer />
+          <GameContainer />
         </div>
 
       </MuiThemeProvider>

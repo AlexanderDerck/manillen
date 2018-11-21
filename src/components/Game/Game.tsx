@@ -2,12 +2,12 @@ import React from 'react';
 import { HandContainer } from '../../containers/HandContainer';
 import { Column, Row } from '../_common/Grid';
 import { HandBack } from '../Hand';
-import { StateProps } from '../../containers/GameFieldContainer';
-import styles from './GameField.module.scss';
+import { StateProps } from '../../containers/GameContainer';
+import styles from './Game.module.scss';
 
-export interface GameFieldProps extends StateProps { };
+export interface GameProps extends StateProps { };
 
-const GameField: React.SFC<GameFieldProps> = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
+const Game: React.SFC<GameProps> = ({ fellowPlayerCards, opponent1Cards, opponent2Cards }) => {
   return (
     <div className={styles.container}>
 
@@ -51,4 +51,4 @@ const GameField: React.SFC<GameFieldProps> = ({ fellowPlayerCards, opponent1Card
   );
 };
 
-export { GameField };
+export { Game };
