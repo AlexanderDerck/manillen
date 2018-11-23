@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { MuiThemeProvider } from '@material-ui/core';
-import { Header } from './components/Header';
+import { BrowserRouter, Route } from 'react-router-dom';
 import muiTheme from './muiTheme';
-import { GameContainer } from './containers/GameContainer';
+import { Header } from './components/Header';
+import { Game, Home, Login } from './pages';
 
-class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider theme={muiTheme}>
+export const App = () => (
+  <MuiThemeProvider theme={muiTheme}>
+    <BrowserRouter>
+      <div>
         <Header />  
 
-        <div style={{width: 800, height: 800, margin: 20}}>
-          <GameContainer />
-        </div>
-
-      </MuiThemeProvider>
-    );
-  }
-}
-
-export default App;
+        <Route path="/" exact component={Home} />
+        <Route path="/game" component={Game} />
+        <Route path="/login" component={Login} />
+      </div>
+    </BrowserRouter>  
+  </MuiThemeProvider>
+);
