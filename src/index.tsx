@@ -8,10 +8,8 @@ import './index.css';
 
 const store: any = configureStore();
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>, 
+ReactDOM.render( 
+  <App store={store} />, 
   document.getElementById('root')
 );
 registerServiceWorker();
