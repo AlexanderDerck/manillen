@@ -4,7 +4,6 @@ The frontend project for [manillen](https://nl.wikipedia.org/wiki/Manillen) a Fl
 Technology stack:
 
 - [React](https://reactjs.org/)
-- [React-Router](https://reacttraining.com/react-router/)
 - [React-Redux](https://react-redux.js.org/)
 - [Redux-Observable](https://redux-observable.js.org/)
 - [Typescript](https://www.typescriptlang.org/)

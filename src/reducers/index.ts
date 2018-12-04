@@ -1,7 +1,8 @@
-import { combineReducers, Reducer, Action } from 'redux';
+import { combineReducers } from 'redux';
 import { game } from './game';
-import { State } from '../state';
+import { authentication } from './authentication';
 
 export const rootReducer = combineReducers({
+  authentication,
   game
 });

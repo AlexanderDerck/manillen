@@ -1,6 +1,6 @@
 import { ActionTypes } from '../constants';
 
-export type AuthenticationActions =
+export type AuthenticationAction =
   Login | LoginSuccess | LoginError |
   Logout | 
   GetLoginInfo | GetLoginInfoSuccess | GetLoginInfoError;

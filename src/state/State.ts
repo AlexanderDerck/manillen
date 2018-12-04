@@ -1,7 +1,7 @@
 import { GameState } from "./GameState";
-import { User } from "../models/User";
+import { AuthenticationState} from './AuthenticationState';
 
 export interface State {
-  game: GameState,
-  user: User
+  authentication: AuthenticationState
+  game: GameState
 };

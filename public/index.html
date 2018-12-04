@@ -29,30 +29,7 @@
       You need to enable JavaScript to run this app.
     </noscript>
     
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '492331311256888',
-          cookie     : true,
-          xfbml      : true,
-          version    : 'v3.2'
-        });
-
-        FB.login((response) => {
-          if (response.authResponse) {
-            console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-              console.log('Good to see you, ' + (response).name + '.');
-            });
-          } else {
-            console.log('User cancelled login or did not fully authorize.');
-          }
-        });
-          
-        FB.AppEvents.logPageView();   
-          
-      };
-    
+    <script>    
       (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
@@ -63,15 +40,5 @@
     </script>
 
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
