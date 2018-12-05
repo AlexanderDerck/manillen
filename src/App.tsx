@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider } from '@material-ui/core';
-import { Header } from './components/Header';
+import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import muiTheme from './muiTheme';
 import { GameContainer } from './containers/GameContainer';
+import { HeaderContainer } from './containers/HeaderContainer';
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={muiTheme}>
-        <Header />  
+      <React.Fragment>
+        <CssBaseline />
+        <MuiThemeProvider theme={muiTheme}>
+          <HeaderContainer />  
 
-        <div style={{width: 800, height: 800, margin: 20}}>
-          <GameContainer />
-        </div>
+          <div style={{width: 800, height: 800, margin: 20}}>
+            <GameContainer />
+          </div>
 
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+      </React.Fragment>
+
     );
   }
 }
