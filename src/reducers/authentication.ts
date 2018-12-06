@@ -24,8 +24,8 @@ function loginSuccess(state: AuthenticationState, response: fb.StatusResponse): 
     isAuthenticated: true,
     user: {
       accessToken: response.authResponse.accessToken,
-      firstName: undefined,
-      lastName: undefined,
+      firstName: 'Alexander',
+      lastName: 'Derck',
       userId: response.authResponse.userID
     }
   }

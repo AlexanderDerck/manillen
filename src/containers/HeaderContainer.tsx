@@ -3,12 +3,15 @@ import { Dispatch } from 'redux';
 import { State } from '../state';
 import { Header } from '../components/Header';
 import { login, Login } from '../actions';
+import { User } from '../models/User';
 
 export interface StateProps {
-  isAuthenticated: boolean
+  isAuthenticated: boolean,
+  user?: User
 };
 const mapStateToProps = (state: State): StateProps => ({
-    isAuthenticated: state.authentication.isAuthenticated
+    isAuthenticated: state.authentication.isAuthenticated,
+    user: state.authentication.user
 });
 
 export interface DispatchProps {
