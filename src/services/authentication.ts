@@ -22,8 +22,14 @@ export function initializeFacebookSdk(store: Store): void {
       status     : true   
     });    
     
+    let hasBeenTriggered = false;
     FB.Event.subscribe('auth.statusChange', function(response: fb.StatusResponse) {
-      store.dispatch(loginSuccess(response));
+      /* Stupid api can't subscribe to events just once, workaround to prevent double 
+       * authentication flow whenever a status changes */
+      if(!hasBeenTriggered) {
+        hasBeenTriggered = true;
+        store.dispatch(loginSuccess(response));        
+      }      
     });
   };
 }
