@@ -5,12 +5,10 @@ import configureStore from './store';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { initializeFacebookSdk } from './services/authentication';
-import { getLoginInfoSuccess } from './actions/authentication';
 import './index.css';
 
-initializeFacebookSdk();
-
 const store = configureStore();
+initializeFacebookSdk(store);
 
 ReactDOM.render(
   <Provider store={store}>

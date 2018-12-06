@@ -2,21 +2,11 @@ import { Observable } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
 import { ofType, Epic } from "redux-observable";
 import { 
-  AuthenticationAction, GetLoginInfo, GetLoginInfoSuccess, GetLoginInfoError, LoginSuccess, 
-  LoginError, Login, getLoginInfoSuccess, loginSuccess, LogoutSuccess, LogoutError, Logout, logoutSuccess 
+  AuthenticationAction, Login, LoginSuccess, LoginError, Logout, LogoutSuccess, LogoutError, 
+  loginSuccess, logoutSuccess 
 } from "../actions/authentication";
 import { AuthenticationState } from "../state";
 import { ActionTypes } from '../constants';
-
-const getLoginInfoEpic: Epic<AuthenticationAction, GetLoginInfoSuccess|GetLoginInfoError, AuthenticationState> = (action$) => action$.pipe(
-  ofType<AuthenticationAction, GetLoginInfo>(ActionTypes.AUTHENTICATION_GET_LOGIN_INFO),
-  mergeMap(_ => 
-    new Observable<fb.StatusResponse>(observer => {
-      FB.getLoginStatus(response => observer.next(response));
-    })
-  ),
-  map(response => getLoginInfoSuccess(response))
-);
 
 const loginEpic: Epic<AuthenticationAction, LoginSuccess|LoginError, AuthenticationState> = (action$) => action$.pipe(
   ofType<AuthenticationAction, Login>(ActionTypes.AUTHENTICATION_LOGIN),
@@ -41,7 +31,6 @@ const logoutEpic: Epic<AuthenticationAction, LogoutSuccess|LogoutError, Authenti
 );
 
 export default [
-  getLoginInfoEpic,
   loginEpic,
   logoutEpic
 ];

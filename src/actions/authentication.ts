@@ -2,8 +2,7 @@ import { ActionTypes } from '../constants';
 
 export type AuthenticationAction =
   Login | LoginSuccess | LoginError |
-  Logout | LogoutSuccess | LogoutError |
-  GetLoginInfo | GetLoginInfoSuccess | GetLoginInfoError;
+  Logout | LogoutSuccess | LogoutError;
 
 export interface Login {
   type: ActionTypes.AUTHENTICATION_LOGIN
@@ -47,27 +46,4 @@ export interface LogoutError {
 };
 export const logoutError = (): LogoutError => ({
   type: ActionTypes.AUTHENTICATION_LOGOUT_ERROR
-});
-
-export interface GetLoginInfo {
-  type: ActionTypes.AUTHENTICATION_GET_LOGIN_INFO
-};
-export const getLoginInfo = (): GetLoginInfo => ({
-  type: ActionTypes.AUTHENTICATION_GET_LOGIN_INFO
-});
-
-export interface GetLoginInfoSuccess {
-  type: ActionTypes.AUTHENTICATION_GET_LOGIN_INFO_SUCCESS,
-  response: fb.StatusResponse
-};
-export const getLoginInfoSuccess = (response: fb.StatusResponse): GetLoginInfoSuccess => ({
-  type: ActionTypes.AUTHENTICATION_GET_LOGIN_INFO_SUCCESS,
-  response
-});
-
-export interface GetLoginInfoError {
-  type: ActionTypes.AUTHENTICATION_GET_LOGIN_INFO_ERROR
-};
-export const getLoginInfoError = (): GetLoginInfoError => ({
-  type: ActionTypes.AUTHENTICATION_GET_LOGIN_INFO_ERROR
 });
