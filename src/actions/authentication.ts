@@ -2,7 +2,7 @@ import { ActionTypes } from '../constants';
 
 export type AuthenticationAction =
   Login | LoginSuccess | LoginError |
-  Logout | 
+  Logout | LogoutSuccess | LogoutError |
   GetLoginInfo | GetLoginInfoSuccess | GetLoginInfoError;
 
 export interface Login {
@@ -33,6 +33,20 @@ export interface Logout {
 };
 export const logout = (): Logout => ({
   type: ActionTypes.AUTHENTICATION_LOGOUT
+});
+
+export interface LogoutSuccess {
+  type: ActionTypes.AUTHENTICATION_LOGOUT_SUCCESS
+};
+export const logoutSuccess = (): LogoutSuccess => ({
+  type: ActionTypes.AUTHENTICATION_LOGOUT_SUCCESS
+});
+
+export interface LogoutError {
+  type: ActionTypes.AUTHENTICATION_LOGOUT_ERROR
+};
+export const logoutError = (): LogoutError => ({
+  type: ActionTypes.AUTHENTICATION_LOGOUT_ERROR
 });
 
 export interface GetLoginInfo {

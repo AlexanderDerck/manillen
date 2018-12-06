@@ -3,11 +3,11 @@ import { AppBar, Typography, Toolbar } from '@material-ui/core';
 
 import styles from './Header.module.scss';
 import { LoginButton } from '../LoginButton/LoginButton';
-import { StateProps } from '../../containers/HeaderContainer';
+import { StateProps, DispatchProps } from '../../containers/HeaderContainer';
 
-export interface HeaderProps extends StateProps { };
+export interface HeaderProps extends StateProps, DispatchProps { };
 
-export const Header: React.SFC<HeaderProps> = ({ isAuthenticated }) => (
+export const Header: React.SFC<HeaderProps> = ({ isAuthenticated, login }) => (
   <AppBar position='static'>
     <Toolbar className={styles.container}>
       <div>
@@ -16,8 +16,8 @@ export const Header: React.SFC<HeaderProps> = ({ isAuthenticated }) => (
         </Typography>
       </div>
       <div>
-        { (
-          <LoginButton /> 
+        { !isAuthenticated && (
+          <LoginButton login={login} /> 
         )}
       </div>
     </Toolbar>

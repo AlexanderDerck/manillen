@@ -15,7 +15,7 @@ const mapStateToProps = (state: State): StateProps => ({
 export interface DispatchProps {
   pickCard: Dispatch<Card>
 };
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch): DispatchProps => ({
   pickCard: (card: Card) => dispatch(playerPickedCard(card))
 });
 

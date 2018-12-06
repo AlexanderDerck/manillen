@@ -4,19 +4,13 @@ import { Provider } from 'react-redux';
 import configureStore from './store';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import { initializeFacebookSdk } from './services/authentication';
 import { getLoginInfoSuccess } from './actions/authentication';
 import './index.css';
 
-const store = configureStore();
+initializeFacebookSdk();
 
-(window as any).fbAsyncInit = function() {
-  FB.init({
-    appId      : '492331311256888',
-    cookie     : true,
-    xfbml      : true,
-    version    : 'v3.2'
-  });          
-};
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
