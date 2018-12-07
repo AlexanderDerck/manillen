@@ -1,8 +1,6 @@
-import { combineReducers, Reducer } from 'redux';
 import { ActionTypes, Ranks, Suits } from '../constants';
-import { Card } from '../models';
 import { GameState } from '../state';
-import { PlayerPickedCard, FellowPlayerPickedCard, Opponent1PickedCard, Opponent2PickedCard, GameAction } from '../actions/game';
+import { GameAction } from '../actions/game';
 
 const initialCards = [
   { rank: Ranks.Seven, suit: Suits.Spades },

@@ -11,4 +11,5 @@ Technology stack:
 - [Sass](https://sass-lang.com/)
 - [Css modules with webpack 4](https://webpack.js.org/)
 - [Material UI](https://material-ui.com/)
+- [Facebook authentication](https://developers.facebook.com/docs/javascript)
 

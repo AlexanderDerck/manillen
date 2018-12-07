@@ -1,28 +1,23 @@
 import React from 'react';
-import { MuiThemeProvider } from '@material-ui/core';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import muiTheme from './muiTheme';
-import { Header } from './components/Header';
 import { Game, Home, Login } from './pages';
-import { Store } from 'redux';
-import { Provider } from 'react-redux';
+import { HeaderContainer } from './containers/HeaderContainer';
 
-export interface AppProps {
-  store: Store
-};
+export interface AppProps { };
 
-export const App: React.SFC<AppProps> = ({ store }) => (
-  <Provider store={store}>
-    <MuiThemeProvider theme={muiTheme}>
-      <BrowserRouter>
-        <div>
-          <Header />  
+export const App: React.SFC<AppProps> = () => (
+  <React.Fragment>
+    <CssBaseline />
+    <BrowserRouter>
+      <MuiThemeProvider theme={muiTheme}>    
+        <HeaderContainer />  
 
-          <Route path="/" exact component={Home} />
-          <Route path="/game" component={Game} />
-          <Route path="/login" component={Login} />
-        </div>
-      </BrowserRouter>  
-    </MuiThemeProvider>
-  </Provider>
+        <Route path="/" exact component={Home} />
+        <Route path="/game" component={Game} />
+        <Route path="/login" component={Login} />
+      </MuiThemeProvider>
+    </BrowserRouter>
+  </React.Fragment>
 );

@@ -3,19 +3,35 @@ import { AppBar, Typography, Toolbar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { Routes } from '../../constants';
 import styles from './Header.module.scss';
+import { LoginButton } from '../LoginButton/LoginButton';
+import { StateProps, DispatchProps } from '../../containers/HeaderContainer';
+import { ProfileButton } from '../ProfileButton/ProfileButton';
+import { User } from '../../models/User';
 
-const Header = () => (
+export interface HeaderProps extends StateProps, DispatchProps { };
+
+export const Header: React.SFC<HeaderProps> = ({ isAuthenticated, user, login }) => (
   <AppBar position='static'>
-    <Toolbar>
-      <div className={styles.container}>
+    <Toolbar className={styles.container}>
+      <div>
         <Link to={Routes.Home}>
           <Typography variant="title" color="inherit">
             Manillen
           </Typography>
         </Link>
       </div>
+      <div>
+        { !isAuthenticated && (
+          <LoginButton login={login} /> 
+        )}
+        { isAuthenticated && renderProfileButton(user)}
+      </div>
     </Toolbar>
   </AppBar>
 );
 
-export { Header };
+function renderProfileButton(user?: User) {
+  if(user) {
+    return <ProfileButton user={user} />;
+  }
+}
