@@ -1,9 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import muiTheme from './muiTheme';
-import { Game, Home, Login } from './pages';
+import { Game, Profile } from './pages';
 import { HeaderContainer } from './containers/HeaderContainer';
+import { Routes } from './constants/Routes';
+import { PrivateRouteContainer } from './containers/PrivateRouteContainer';
+import { PrivateRoute } from './components/_common/PrivateRoute';
 
 export interface AppProps { };
 
@@ -14,9 +17,11 @@ export const App: React.SFC<AppProps> = () => (
       <MuiThemeProvider theme={muiTheme}>    
         <HeaderContainer />  
 
-        <Route path="/" exact component={Home} />
-        <Route path="/game" component={Game} />
-        <Route path="/login" component={Login} />
+        <Switch>
+          <Route path={Routes.Home} exact component={Game} />
+          <Route path={Routes.Game} component={Game} />
+          <PrivateRouteContainer path={Routes.Profile} component={Profile} />
+        </Switch>
       </MuiThemeProvider>
     </BrowserRouter>
   </React.Fragment>
