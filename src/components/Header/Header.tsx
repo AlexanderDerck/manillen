@@ -11,7 +11,7 @@ import { User } from '../../models/User';
 export interface HeaderProps extends StateProps, DispatchProps { };
 
 export const Header: React.SFC<HeaderProps> = ({ isAuthenticated, user, login }) => (
-  <AppBar position='static'>
+  <AppBar position="absolute">
     <Toolbar className={styles.container}>
       <div>
         <Link to={Routes.Home}>

@@ -1,0 +1,27 @@
+@import 'src/variables';
+
+.fullHeight {
+  height: 100%;
+}
+
+.gameContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 60%;
+
+  @media (min-width: $lg) {
+    height: 100%;
+  }
+}
+
+.chatContainer {
+  height: 40%;
+
+  @media (min-width: $lg) {
+    height: 100%;
+    min-height: 100px;
+    margin-left: auto;
+    width: 200px;
+  }
+}
