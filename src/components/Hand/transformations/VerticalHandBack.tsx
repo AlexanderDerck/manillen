@@ -31,7 +31,7 @@ const VerticalHandBack: React.SFC<VerticalHandBackProps> = ({ amountOfCards = 8,
   
   return (
     <div className={styles.container} style={{paddingBottom: `${paddingBottomPercent}%`}}>
-      <svg viewBox={`0 -${yCoordinate} ${viewBoxWidth} ${viewBoxHeight}`} className={styles.hand}>
+      <svg viewBox={`0 -${yCoordinate} ${viewBoxWidth} ${viewBoxHeight}`} className={styles.unSelectable}>
         {cardComponents}
       </svg>
     </div>

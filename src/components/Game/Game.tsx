@@ -16,46 +16,39 @@ const Game: React.SFC<GameProps> = props => {
     <div className={styles.container}>
 
       {/* Horizontal opponent row */}
-      <Row className={styles.topRowHeight}>
-        <Column lg={6}>
-          <div className={styles.horizontalHandContainer}>
-            <HandBack amountOfCards={props.fellowPlayerCards} maxAmountOfCards={8}></HandBack>
-          </div>          
-        </Column>
-      </Row>
-
+      <div className={styles.horizontalOpponentHand}>
+        <HandBack amountOfCards={props.fellowPlayerCards} maxAmountOfCards={8}></HandBack>  
+      </div>
+      
       {/* Gamefield + vertical opponents */}
-      <Row className={styles.middleRowHeight}>
-        <Column lg={3}>
-          <div className={styles.verticalHandContainer}>
-            <HandBack vertical amountOfCards={props.opponent1Cards} maxAmountOfCards={8}></HandBack>
-          </div>         
-        </Column>
-        
-        <Column lg={6} className="height-100">
-          <GameField 
-            playerCard={props.playerPlayedCard} 
-            fellowPlayerCard={props.fellowPlayerPlayedCard} 
-            opponent1Card={props.opponent1PlayedCard} 
-            opponent2Card={props.opponent2PlayedCard} 
-          />
-        </Column>
-        
-        <Column lg={3}>
-          <div className={styles.verticalHandContainer}>
-            <HandBack vertical amountOfCards={props.opponent2Cards} maxAmountOfCards={8}></HandBack>
-          </div>         
-        </Column>
-      </Row>
+      <div className={styles.leftVerticalOpponentHand}>
+        <div className={styles.verticalHandContainer}>
+          <HandBack vertical amountOfCards={props.opponent1Cards} maxAmountOfCards={8}></HandBack>
+        </div>   
+      </div>
+      
+      <div className={styles.gameField}>
+        <GameField 
+          playerCard={props.playerPlayedCard} 
+          fellowPlayerCard={props.fellowPlayerPlayedCard} 
+          opponent1Card={props.opponent1PlayedCard} 
+          opponent2Card={props.opponent2PlayedCard} 
+        />  
+      </div>
 
+      <div className={styles.rightVerticalOpponentHand}>
+        <div className={styles.verticalHandContainer}>
+          <HandBack vertical amountOfCards={props.opponent2Cards} maxAmountOfCards={8}></HandBack> 
+        </div>       
+      </div>
+      
       {/* Player row */}
-      <Row className={styles.bottomRowHeight}>      
-        <Column lg={6}>
-        <div>
-          <HandContainer maxAmountOfCards={8} />
-        </div>         
-        </Column>
-      </Row>
+      <div className={styles.horizontalPlayerHand}>
+        <HandContainer maxAmountOfCards={8} />    
+      </div>
+      
+      
+
     </div>
   );
 };

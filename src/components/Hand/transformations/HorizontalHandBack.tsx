@@ -32,7 +32,7 @@ const HorizontalHandBack: React.SFC<HorizontalHandBackProps> = ({ amountOfCards 
     
     return (
       <div className={styles.container} style={{paddingBottom: `${paddingBottomPercent}%`}}>
-        <svg viewBox={`-${xCoordinate} 0 ${viewBoxWidth} ${viewBoxHeight}`} className={styles.hand}>
+        <svg viewBox={`-${xCoordinate} 0 ${viewBoxWidth} ${viewBoxHeight}`} className={styles.unSelectable}>
           {cardComponents}
         </svg>
       </div>
