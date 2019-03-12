@@ -1,9 +1,9 @@
 import { ActionTypes } from '../constants';
+import { FacebookUserInfo } from '../models/FacebookUserInfo';
 
-export type AuthenticationAction =  LoginFacebook 
-  | LoginFacebookSuccess 
-  | LogoutFacebook 
-  | LogoutFacebookSuccess;
+export type AuthenticationAction =  LoginFacebook | LoginFacebookSuccess 
+  | LogoutFacebook | LogoutFacebookSuccess
+  | GetUserInfoFacebookSuccess;
 
 export interface LoginFacebook {
   type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK
@@ -33,4 +33,13 @@ export interface LogoutFacebookSuccess {
 };
 export const logoutFacebookSuccess = (): LogoutFacebookSuccess => ({
   type: ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK_SUCCESS
+});
+
+export interface GetUserInfoFacebookSuccess {
+  type: ActionTypes.AUTHENTICATION_GET_USER_INFO_FACEBOOK_SUCCESS,
+  userInfo: FacebookUserInfo
+};
+export const getUserInfoFacebookSuccess = (userInfo: FacebookUserInfo): GetUserInfoFacebookSuccess => ({
+  type: ActionTypes.AUTHENTICATION_GET_USER_INFO_FACEBOOK_SUCCESS,
+  userInfo
 });
