@@ -1,49 +1,36 @@
 import { ActionTypes } from '../constants';
 
-export type AuthenticationAction =
-  Login | LoginSuccess | LoginError |
-  Logout | LogoutSuccess | LogoutError;
+export type AuthenticationAction =  LoginFacebook 
+  | LoginFacebookSuccess 
+  | LogoutFacebook 
+  | LogoutFacebookSuccess;
 
-export interface Login {
-  type: ActionTypes.AUTHENTICATION_LOGIN
+export interface LoginFacebook {
+  type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK
 };
-export const login = (): Login => ({
-  type: ActionTypes.AUTHENTICATION_LOGIN
+export const loginFacebook = (): LoginFacebook => ({
+  type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK
 });
 
-export interface LoginSuccess {
-  type: ActionTypes.AUTHENTICATION_LOGIN_SUCCESS,
+export interface LoginFacebookSuccess {
+  type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_SUCCESS,
   response: fb.StatusResponse
 };
-export const loginSuccess = (response: fb.StatusResponse): LoginSuccess => ({
-  type: ActionTypes.AUTHENTICATION_LOGIN_SUCCESS,
+export const loginFacebookSuccess = (response: fb.StatusResponse): LoginFacebookSuccess => ({
+  type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_SUCCESS,
   response
 });
 
-export interface LoginError {
-  type: ActionTypes.AUTHENTICATION_LOGIN_ERROR
+export interface LogoutFacebook {
+  type: ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK
 };
-export const loginError = (): LoginError => ({
-  type: ActionTypes.AUTHENTICATION_LOGIN_ERROR
+export const logoutFacebook = (): LogoutFacebook => ({
+  type: ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK
 });
 
-export interface Logout {
-  type: ActionTypes.AUTHENTICATION_LOGOUT
+export interface LogoutFacebookSuccess {
+  type: ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK_SUCCESS
 };
-export const logout = (): Logout => ({
-  type: ActionTypes.AUTHENTICATION_LOGOUT
-});
-
-export interface LogoutSuccess {
-  type: ActionTypes.AUTHENTICATION_LOGOUT_SUCCESS
-};
-export const logoutSuccess = (): LogoutSuccess => ({
-  type: ActionTypes.AUTHENTICATION_LOGOUT_SUCCESS
-});
-
-export interface LogoutError {
-  type: ActionTypes.AUTHENTICATION_LOGOUT_ERROR
-};
-export const logoutError = (): LogoutError => ({
-  type: ActionTypes.AUTHENTICATION_LOGOUT_ERROR
+export const logoutFacebookSuccess = (): LogoutFacebookSuccess => ({
+  type: ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK_SUCCESS
 });

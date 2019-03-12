@@ -2,14 +2,14 @@ import { Observable } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
 import { ofType, Epic } from "redux-observable";
 import { 
-  AuthenticationAction, Login, LoginSuccess, LoginError, Logout, LogoutSuccess, LogoutError, 
-  loginSuccess, logoutSuccess 
+  AuthenticationAction, LoginFacebook, LoginFacebookSuccess, LogoutFacebook, LogoutFacebookSuccess, 
+  loginFacebookSuccess, logoutFacebookSuccess 
 } from "../actions/authentication";
 import { AuthenticationState } from "../state";
 import { ActionTypes } from '../constants';
 
-const loginEpic: Epic<AuthenticationAction, LoginSuccess|LoginError, AuthenticationState> = (action$) => action$.pipe(
-  ofType<AuthenticationAction, Login>(ActionTypes.AUTHENTICATION_LOGIN),
+const loginEpic: Epic<AuthenticationAction, LoginFacebookSuccess, AuthenticationState> = (action$) => action$.pipe(
+  ofType<AuthenticationAction, LoginFacebook>(ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK),
   mergeMap(_ => 
     new Observable<fb.StatusResponse>(observer => {
       FB.login(response => observer.next(response), { 
@@ -17,17 +17,17 @@ const loginEpic: Epic<AuthenticationAction, LoginSuccess|LoginError, Authenticat
       });
     })
   ),
-  map(response => loginSuccess(response))
+  map(response => loginFacebookSuccess(response))
 );
 
-const logoutEpic: Epic<AuthenticationAction, LogoutSuccess|LogoutError, AuthenticationState> = (action$) => action$.pipe(
-  ofType<AuthenticationAction, Logout>(ActionTypes.AUTHENTICATION_LOGOUT),
+const logoutEpic: Epic<AuthenticationAction, LogoutFacebookSuccess, AuthenticationState> = (action$) => action$.pipe(
+  ofType<AuthenticationAction, LogoutFacebook>(ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK),
   mergeMap(_ => 
     new Observable<fb.StatusResponse>(observer => {
       FB.logout(_ => observer.next());
     })
   ),
-  map(_ => logoutSuccess())
+  map(_ => logoutFacebookSuccess())
 );
 
 export default [

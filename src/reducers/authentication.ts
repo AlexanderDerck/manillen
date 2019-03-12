@@ -9,8 +9,8 @@ const initialState: AuthenticationState = {
 
 export function authentication(state: AuthenticationState = initialState, action: AuthenticationAction): AuthenticationState {
   switch(action.type) {
-    case ActionTypes.AUTHENTICATION_LOGIN_SUCCESS: return loginSuccess(state, action.response);
-    case ActionTypes.AUTHENTICATION_LOGOUT_SUCCESS: return logoutSuccess();
+    case ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_SUCCESS: return loginSuccess(state, action.response);
+    case ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK_SUCCESS: return logoutSuccess();
     default: return state;
   }
 }

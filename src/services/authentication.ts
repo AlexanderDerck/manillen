@@ -1,5 +1,5 @@
 import { Store } from "redux";
-import { loginSuccess } from "../actions";
+import { loginFacebookSuccess } from "../actions";
 
 interface Window {
   FB: fb.FacebookStatic,
@@ -47,7 +47,7 @@ export function initializeFacebookSdk(store: Store): void {
        * authentication flow whenever a status changes */
       if(!hasBeenTriggered) {
         hasBeenTriggered = true;
-        store.dispatch(loginSuccess(response));        
+        store.dispatch(loginFacebookSuccess(response));        
       }      
     });
   }
