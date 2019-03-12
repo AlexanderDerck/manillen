@@ -22,18 +22,19 @@ function loginSuccess(state: AuthenticationState, response: fb.StatusResponse): 
 
   return {
     isAuthenticated: true,
+    accessToken: response.authResponse.accessToken,
     user: {
-      accessToken: response.authResponse.accessToken,
       firstName: 'Alexander',
       lastName: 'Derck',
       userId: response.authResponse.userID
     }
-  }
+  };
 }
 
 function logoutSuccess(): AuthenticationState {
   return {
     isAuthenticated: false,
+    accessToken: undefined,
     user: undefined
   };
 }

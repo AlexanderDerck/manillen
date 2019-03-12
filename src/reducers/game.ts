@@ -30,8 +30,8 @@ export function game(state: GameState = initialState, action: GameAction): GameS
         ...state,
         playerPlayedCard: action.card,
         playerCards: state.playerCards.filter(card => 
-          card.suit !== action.card.suit ||
-          card.rank !== action.card.rank
+          card.suit !== action.card.suit 
+          || card.rank !== action.card.rank
         )
       };      
     }
