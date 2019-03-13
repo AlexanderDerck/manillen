@@ -1,7 +1,7 @@
 import { AuthenticationState } from '../state';
 import { AuthenticationAction } from '../actions/authentication';
 import { ActionTypes } from '../constants';
-import { UserInfo } from '../models/facebook';
+import { UserInfo, Error } from '../models/facebook';
 import { number } from 'prop-types';
 
 const initialState: AuthenticationState = {
@@ -13,23 +13,31 @@ export function authentication(state: AuthenticationState = initialState, action
   switch(action.type) {
     case ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_SUCCESS: 
       return loginFacebookSuccess(state, action.response);
+    case ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_ERROR:
+      return loginFacebookError(state, action.response);
     case ActionTypes.AUTHENTICATION_LOGOUT_FACEBOOK_SUCCESS: 
       return logoutFacebookSuccess();
     case ActionTypes.AUTHENTICATION_GET_USER_INFO_FACEBOOK_SUCCESS:
-      return getUserInfoFacebookSuccess(state, action.userInfo)
+      return getUserInfoFacebookSuccess(state, action.userInfo);
+    case ActionTypes.AUTHENTICATION_GET_USER_INFO_FACEBOOK_ERROR:
+      return getUserInfoFacebookError(state, action.error);
     default: return state;
   }
 }
 
 function loginFacebookSuccess(state: AuthenticationState, response: fb.StatusResponse): AuthenticationState {
-  if(response.status !== "connected") {
-    return state;
-  }
-
   return {
     ...state,
     isAuthenticated: true,
     accessToken: response.authResponse.accessToken
+  };
+}
+
+function loginFacebookError(state: AuthenticationState, response: fb.StatusResponse): AuthenticationState {
+  return {
+    ...state,
+    isAuthenticated: false,
+    accessToken: undefined
   };
 }
 
@@ -44,6 +52,14 @@ function getUserInfoFacebookSuccess(state: AuthenticationState, userInfo: UserIn
       email: userInfo.email || '',
       profilePictureUrl: userInfo.picture && userInfo.picture.data.url || ''
     }
+  };
+}
+
+function getUserInfoFacebookError(state: AuthenticationState, error: Error): AuthenticationState {
+  return {
+    ...state,
+    isAuthenticated: false,
+    user: undefined
   };
 }
 

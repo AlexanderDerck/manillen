@@ -1,4 +1,4 @@
-import { Picture } from "./Picture";
+import { Picture } from "./";
 
 export interface UserInfo {
   id: string,

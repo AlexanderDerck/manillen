@@ -1,9 +1,9 @@
 import { ActionTypes } from '../constants';
-import { UserInfo } from '../models/facebook';
+import { UserInfo, Error } from '../models/facebook';
 
-export type AuthenticationAction =  LoginFacebook | LoginFacebookSuccess 
+export type AuthenticationAction =  LoginFacebook | LoginFacebookSuccess | LoginFacebookError
   | LogoutFacebook | LogoutFacebookSuccess
-  | GetUserInfoFacebookSuccess;
+  | GetUserInfoFacebookSuccess | GetUserInfoFacebookError;
 
 export interface LoginFacebook {
   type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK
@@ -18,6 +18,15 @@ export interface LoginFacebookSuccess {
 };
 export const loginFacebookSuccess = (response: fb.StatusResponse): LoginFacebookSuccess => ({
   type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_SUCCESS,
+  response
+});
+
+export interface LoginFacebookError {
+  type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_ERROR,
+  response: fb.StatusResponse
+};
+export const loginFacebookError = (response: fb.StatusResponse): LoginFacebookError => ({
+  type: ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_ERROR,
   response
 });
 
@@ -42,4 +51,13 @@ export interface GetUserInfoFacebookSuccess {
 export const getUserInfoFacebookSuccess = (userInfo: UserInfo): GetUserInfoFacebookSuccess => ({
   type: ActionTypes.AUTHENTICATION_GET_USER_INFO_FACEBOOK_SUCCESS,
   userInfo
+});
+
+export interface GetUserInfoFacebookError {
+  type: ActionTypes.AUTHENTICATION_GET_USER_INFO_FACEBOOK_ERROR,
+  error: Error
+};
+export const getUserInfoFacebookError = (error: Error): GetUserInfoFacebookError => ({
+  type: ActionTypes.AUTHENTICATION_GET_USER_INFO_FACEBOOK_ERROR,
+  error
 });
