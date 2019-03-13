@@ -7,8 +7,9 @@ import {
 } from "../actions/authentication";
 import { loginFacebookSuccess, logoutFacebookSuccess, getUserInfoFacebookSuccess } from '../actions/authentication';
 import { AuthenticationState } from "../state";
-import { ActionTypes } from '../constants';
-import { FacebookUserInfo } from '../models/FacebookUserInfo';
+import { ActionTypes, FacebookUserInfoFields } from '../constants';
+import { UserInfo } from '../models/facebook';
+import { string } from 'prop-types';
 
 const loginFacebookEpic: Epic<AuthenticationAction, LoginFacebookSuccess, AuthenticationState> = (action$) => action$.pipe(
   ofType<AuthenticationAction, LoginFacebook>(ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK),
@@ -28,8 +29,15 @@ const getUserInfoFacebookEpic: Epic<AuthenticationAction, GetUserInfoFacebookSuc
   mergeMap(loginFacebookSuccess => 
     new Observable<object>(observer => FB.api(
       `/${loginFacebookSuccess.response.authResponse.userID}/`, 
-      { fields: 'email, first_name, last_name'},
-      response => observer.next(response as FacebookUserInfo)
+      { 
+        fields: [
+          FacebookUserInfoFields.email,
+          FacebookUserInfoFields.firstName,
+          FacebookUserInfoFields.lastName,
+          FacebookUserInfoFields.picture
+        ].join(", ")
+      },
+      response => observer.next(response as UserInfo)
     ))
   ),
   map(response => getUserInfoFacebookSuccess(response))

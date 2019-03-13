@@ -1,7 +1,7 @@
 import { AuthenticationState } from '../state';
 import { AuthenticationAction } from '../actions/authentication';
 import { ActionTypes } from '../constants';
-import { FacebookUserInfo } from '../models/FacebookUserInfo';
+import { UserInfo } from '../models/facebook';
 
 const initialState: AuthenticationState = {
   isAuthenticated: false,
@@ -33,7 +33,7 @@ function loginFacebookSuccess(state: AuthenticationState, response: fb.StatusRes
   };
 }
 
-function getUserInfoFacebookSuccess(state: AuthenticationState, userInfo: FacebookUserInfo): AuthenticationState {
+function getUserInfoFacebookSuccess(state: AuthenticationState, userInfo: UserInfo): AuthenticationState {
   return {
     ...state,
     user: {
