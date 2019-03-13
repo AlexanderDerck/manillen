@@ -7,9 +7,9 @@ import {
 } from "../actions/authentication";
 import { loginFacebookSuccess, logoutFacebookSuccess, getUserInfoFacebookSuccess } from '../actions/authentication';
 import { AuthenticationState } from "../state";
-import { ActionTypes, FacebookUserInfoFields } from '../constants';
+import { ActionTypes } from '../constants';
+import { LoginScope, UserInfoFields } from '../constants/facebook';
 import { UserInfo } from '../models/facebook';
-import { string } from 'prop-types';
 
 const loginFacebookEpic: Epic<AuthenticationAction, LoginFacebookSuccess, AuthenticationState> = (action$) => action$.pipe(
   ofType<AuthenticationAction, LoginFacebook>(ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK),
@@ -17,7 +17,7 @@ const loginFacebookEpic: Epic<AuthenticationAction, LoginFacebookSuccess, Authen
     new Observable<fb.StatusResponse>(observer => FB.login(
       response => observer.next(response), 
       { 
-        scope: 'email'
+        scope: LoginScope.email
       }
     ))
   ),
@@ -27,17 +27,17 @@ const loginFacebookEpic: Epic<AuthenticationAction, LoginFacebookSuccess, Authen
 const getUserInfoFacebookEpic: Epic<AuthenticationAction, GetUserInfoFacebookSuccess, AuthenticationState> = (action$) => action$.pipe(
   ofType<AuthenticationAction, LoginFacebookSuccess>(ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_SUCCESS),
   mergeMap(loginFacebookSuccess => 
-    new Observable<object>(observer => FB.api(
+    new Observable<UserInfo>(observer => FB.api(
       `/${loginFacebookSuccess.response.authResponse.userID}/`, 
       { 
         fields: [
-          FacebookUserInfoFields.email,
-          FacebookUserInfoFields.firstName,
-          FacebookUserInfoFields.lastName,
-          FacebookUserInfoFields.picture
+          UserInfoFields.email,
+          UserInfoFields.firstName,
+          UserInfoFields.lastName,
+          UserInfoFields.picture
         ].join(", ")
       },
-      response => observer.next(response as UserInfo)
+      response => observer.next(response)
     ))
   ),
   map(response => getUserInfoFacebookSuccess(response))

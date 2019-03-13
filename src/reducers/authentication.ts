@@ -2,6 +2,7 @@ import { AuthenticationState } from '../state';
 import { AuthenticationAction } from '../actions/authentication';
 import { ActionTypes } from '../constants';
 import { UserInfo } from '../models/facebook';
+import { number } from 'prop-types';
 
 const initialState: AuthenticationState = {
   isAuthenticated: false,
@@ -28,8 +29,7 @@ function loginFacebookSuccess(state: AuthenticationState, response: fb.StatusRes
   return {
     ...state,
     isAuthenticated: true,
-    accessToken: response.authResponse.accessToken,
-    facebookUserId: response.authResponse.userID,
+    accessToken: response.authResponse.accessToken
   };
 }
 
@@ -38,9 +38,11 @@ function getUserInfoFacebookSuccess(state: AuthenticationState, userInfo: UserIn
     ...state,
     user: {
       id: 0,
+      facebookId: new Number(userInfo.id).valueOf(),
       firstName: userInfo.first_name || '',
       lastName: userInfo.last_name || '',
-      email: userInfo.email || ''
+      email: userInfo.email || '',
+      profilePictureUrl: userInfo.picture && userInfo.picture.data.url || ''
     }
   };
 }

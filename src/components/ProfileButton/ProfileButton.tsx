@@ -15,9 +15,19 @@ export const ProfileButton: React.SFC<ProfileButtonProps> = ({ user }) => {
   return (
     <Link to={Routes.Profile}>
       <Button color="inherit">
-        <Avatar className={styles.avatar}>{initials}</Avatar>
+        {createAvatar(user)}
         {`${user.firstName} ${user.lastName}`}
       </Button> 
     </Link>
   );
+}
+
+function createAvatar(user: User) {
+  if (user.profilePictureUrl) {
+    return <Avatar className={styles.avatar} src={user.profilePictureUrl} />;
+  } else {
+    const initials = `${user.firstName[0]}${user.lastName[0]}`;
+
+    return <Avatar className={styles.avatar}>{initials}</Avatar>;
+  }
 }
