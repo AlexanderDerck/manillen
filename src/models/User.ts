@@ -3,6 +3,6 @@ export interface User {
   facebookId?: number,
   firstName: string,
   lastName: string,
-  email: string,
-  profilePictureUrl: string
+  email?: string,
+  profilePictureUrl?: string
 };

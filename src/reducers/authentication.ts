@@ -49,8 +49,8 @@ function getUserInfoFacebookSuccess(state: AuthenticationState, userInfo: UserIn
       facebookId: new Number(userInfo.id).valueOf(),
       firstName: userInfo.first_name || '',
       lastName: userInfo.last_name || '',
-      email: userInfo.email || '',
-      profilePictureUrl: userInfo.picture && userInfo.picture.data.url || ''
+      email: userInfo.email,
+      profilePictureUrl: userInfo.picture && userInfo.picture.data.url
     }
   };
 }
