@@ -10,7 +10,7 @@ import { User } from '../../models/User';
 
 export interface HeaderProps extends StateProps, DispatchProps { };
 
-export const Header: React.SFC<HeaderProps> = ({ isAuthenticated, user, login }) => (
+export const Header: React.SFC<HeaderProps> = ({ isAuthenticated, user, login, logout }) => (
   <AppBar position="absolute">
     <Toolbar className={styles.container}>
       <div>
@@ -24,14 +24,14 @@ export const Header: React.SFC<HeaderProps> = ({ isAuthenticated, user, login })
         { !isAuthenticated && (
           <LoginButton login={login} /> 
         )}
-        { isAuthenticated && renderProfileButton(user)}
+        { isAuthenticated && renderProfileButton(user as User, logout)}
       </div>
     </Toolbar>
   </AppBar>
 );
 
-function renderProfileButton(user?: User) {
+function renderProfileButton(user: User, logout: Function) {
   if(user) {
-    return <ProfileButton user={user} />;
+    return <ProfileButton user={user} logout={logout} />;
   }
 }

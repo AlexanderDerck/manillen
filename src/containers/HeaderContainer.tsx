@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { State } from '../state';
 import { Header } from '../components/Header';
-import { loginFacebook, LoginFacebook } from '../actions';
+import { loginFacebook, LoginFacebook, LogoutFacebook, logoutFacebook } from '../actions';
 import { User } from '../models/User';
 
 export interface StateProps {
@@ -15,10 +15,12 @@ const mapStateToProps = (state: State): StateProps => ({
 });
 
 export interface DispatchProps {
-  login: Dispatch<LoginFacebook>
-}
+  login: Dispatch<LoginFacebook>,
+  logout: Dispatch<LogoutFacebook>
+};
 const mapDispatchToProps = (dispatch): DispatchProps => ({
-  login: () => dispatch(loginFacebook())
+  login: () => dispatch(loginFacebook()),
+  logout: () => dispatch(logoutFacebook())
 });
 
 export const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
