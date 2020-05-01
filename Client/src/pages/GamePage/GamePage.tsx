@@ -5,8 +5,8 @@ import styles from './GamePage.module.scss';
 
 export const GamePage = () => (
   <FullScreen>
-    <Row justify="center" className={styles.fullHeight}>
-      <Column lg={6} xs={12} className={styles.gameContainer}>
+    <Row justify="center" className="h-100 py-md-3">
+      <Column lg={8} xs={12} className={styles.gameContainer}>
         <GameContainer />
       </Column>
     </Row>

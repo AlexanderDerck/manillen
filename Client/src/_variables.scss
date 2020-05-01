@@ -11,8 +11,15 @@ $md: 960px;
 $lg: 1280px;
 
 // Natural dimensions of the svg cards
-$cardHeight: 244;
 $cardWidth: 169;
+$cardHeight: 244;
+
+// Dimensions of game
+$handHeightWidthRatio: 0.3208125;
+$handWidth: 400px;
+$handHeight: $handHeightWidthRatio * $handWidth;
+$handCardWidth: $handWidth / 4.5; // A hand with 8 cards is 4.5 x the width of a single card
+$handCardHeight: $cardHeight / $cardWidth * $handCardWidth;
 
 // FontSizes
 $fontSize: 14px;

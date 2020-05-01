@@ -1,4 +1,4 @@
-$cardWidth: 30%;
+@import '../../variables';
 
 .container {
   height: 100%;
@@ -20,12 +20,12 @@ $cardWidth: 30%;
 
 .verticalCardContainer {
   /* Natural (vertical) card dimensions: 169 x 244, calculate with based on horizontal cards */
-  width: $cardWidth * 169 / 244;
+  width: $handCardWidth;
   margin: auto;
 }
 
 .horizontalCardContainer {
   display: inline-block;
-  width: $cardWidth;
+  width: $handCardHeight;
   margin: 0 5%;
 }

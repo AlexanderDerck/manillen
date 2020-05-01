@@ -8,17 +8,16 @@
 
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 25% 50% 1fr;
 }
 
 .horizontalOpponentHand {
   grid-column: 2 / 3;
-  margin: auto 0;
 }
 
 .leftVerticalOpponentHand {
   grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  grid-row: 1 / 4;
 }
 
 .gameField {
@@ -28,16 +27,15 @@
 
 .rightVerticalOpponentHand {
   grid-column: 3 / 4;
-  grid-row: 2 / 3;
+  grid-row: 1 / 4;
 }
 
 .horizontalPlayerHand {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
-  margin: auto 0;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $sm) {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 1fr;
@@ -66,13 +64,20 @@
   }
 }
 
+.horizontalHandContainer,
 .verticalHandContainer {
-  /* Hand dimensions:
-   * Horizontal: 400 x 128.33
-   * Vertical: 200 x 623.36
-   * => Find out where .3208 ratio comes from! */
-  width: .3208 * 100% * 2; // Do *2 because grid width 25% instead of horizontal one of 50%
-  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto; 
+}
+
+.horizontalHandContainer {
+  width: $handWidth;
+}
+
+.verticalHandContainer {
+  width: $handHeight; 
 }
 
 .topRowHeight, .bottomRowHeight {
@@ -81,4 +86,12 @@
 
 .middleRowHeight {
   height: 50%;
+}
+
+.maxWidth200 {
+  max-width: 200px;
+}
+
+.maxWidth400 {
+  max-width: 400px;
 }
