@@ -1,6 +1,6 @@
 import React from 'react';
+import { Column, FullScreen, Row } from '../components';
 import { GameContainer } from '../containers/GameContainer';
-import { FullScreen, Row, Column } from '../components/_common';
 import styles from './GamePage.module.scss';
 
 export const GamePage = () => (

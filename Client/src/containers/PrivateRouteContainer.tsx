@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
-import { PrivateRoute } from '../components/_common/PrivateRoute';
+import { RouteProps } from 'react-router-dom';
+import { PrivateRoute } from '../components';
 import { State } from '../state';
 
-export interface StateProps {
+export interface PrivateRouteProps extends RouteProps, StateProps { };
+
+interface StateProps {
   isAuthenticated: boolean
 };
 const mapStateToProps = (state: State): StateProps => ({

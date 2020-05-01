@@ -1,8 +1,7 @@
-import { connect} from 'react-redux';
-import { State } from '../state';
-import { Game } from '../components/Game';
+import { connect } from 'react-redux';
+import { Game } from '../components';
 import { Card } from '../models';
-import { Ranks, Suits } from '../constants';
+import { State } from '../state';
 
 export interface StateProps {
   // Number of cards for the opponent hands

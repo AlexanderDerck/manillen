@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
-import muiTheme from './muiTheme';
-import { GamePage, ProfilePage } from './pages';
-import { HeaderContainer } from './containers/HeaderContainer';
+import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
 import { Routes } from './constants/Routes';
+import { HeaderContainer } from './containers/HeaderContainer';
 import { PrivateRouteContainer } from './containers/PrivateRouteContainer';
-import { PrivateRoute } from './components/_common/PrivateRoute';
+import { theme } from './muiTheme';
+import { GamePage, ProfilePage } from './pages';
 
 export interface AppProps { };
 
@@ -14,13 +13,13 @@ export const App: React.SFC<AppProps> = () => (
   <React.Fragment>
     <CssBaseline />
     <BrowserRouter>
-      <MuiThemeProvider theme={muiTheme}>    
+      <MuiThemeProvider theme={theme}>    
         <HeaderContainer />  
 
         <Switch>
-          <Route path={Routes.Home} exact component={GamePage} />
-          <Route path={Routes.Game} component={GamePage} />
-          <PrivateRouteContainer path={Routes.Profile} component={ProfilePage} />
+          <Route path={Routes.Home} exact><GamePage></GamePage></Route>
+          <Route path={Routes.Game} exact><GamePage></GamePage></Route>
+          <PrivateRouteContainer path={Routes.Profile}><ProfilePage></ProfilePage></PrivateRouteContainer>
         </Switch>
       </MuiThemeProvider>
     </BrowserRouter>

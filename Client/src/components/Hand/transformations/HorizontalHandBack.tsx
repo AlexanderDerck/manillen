@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { CardBackSvgUse } from '../../Card/svg/CardBackSvgUse';
-
 import styles from '../HandBack.module.scss';
 
 export interface HorizontalHandBackProps {

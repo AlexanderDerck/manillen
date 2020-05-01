@@ -1,12 +1,12 @@
 import React from 'react';
-import { AppBar, Typography, Toolbar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Routes } from '../../constants';
-import styles from './Header.module.scss';
-import { LoginButton } from '../LoginButton/LoginButton';
-import { StateProps, DispatchProps } from '../../containers/HeaderContainer';
-import { ProfileButton } from '../ProfileButton/ProfileButton';
+import { DispatchProps, StateProps } from '../../containers/HeaderContainer';
 import { User } from '../../models/User';
+import { LoginButton } from '../LoginButton/LoginButton';
+import { ProfileButton } from '../ProfileButton/ProfileButton';
+import styles from './Header.module.scss';
 
 export interface HeaderProps extends StateProps, DispatchProps { };
 
@@ -15,7 +15,7 @@ export const Header: React.SFC<HeaderProps> = ({ isAuthenticated, user, login, l
     <Toolbar className={styles.container}>
       <div>
         <Link to={Routes.Home}>
-          <Typography variant="title" color="inherit">
+          <Typography variant="h4" color="inherit">
             Manillen
           </Typography>
         </Link>

@@ -1,15 +1,16 @@
+import { Epic, ofType } from 'redux-observable';
 import { Observable } from 'rxjs';
-import { mergeMap, map, tap } from 'rxjs/operators';
-import { ofType, Epic } from "redux-observable";
-import { 
-  AuthenticationAction, LoginFacebook, LoginFacebookSuccess, LogoutFacebook, 
-  LogoutFacebookSuccess, GetUserInfoFacebookSuccess, loginFacebookError, LoginFacebookError, getUserInfoFacebookError, GetUserInfoFacebookError 
-} from "../actions/authentication";
-import { loginFacebookSuccess, logoutFacebookSuccess, getUserInfoFacebookSuccess } from '../actions/authentication';
-import { AuthenticationState } from "../state";
+import { map, mergeMap } from 'rxjs/operators';
+import {
+    AuthenticationAction, getUserInfoFacebookError, GetUserInfoFacebookError,
+    GetUserInfoFacebookSuccess, getUserInfoFacebookSuccess, LoginFacebook, loginFacebookError,
+    LoginFacebookError, LoginFacebookSuccess, loginFacebookSuccess, LogoutFacebook,
+    LogoutFacebookSuccess, logoutFacebookSuccess
+} from '../actions/authentication';
 import { ActionTypes } from '../constants';
 import { LoginScope, UserInfoFields } from '../constants/facebook';
-import { GetUserInfoResponse } from '../models/facebook';
+import { GetUserInfoResponse, UserInfo } from '../models/facebook';
+import { AuthenticationState } from '../state';
 
 const loginFacebookEpic: Epic<AuthenticationAction, LoginFacebookSuccess|LoginFacebookError, AuthenticationState> = (action$) => action$.pipe(
   ofType<AuthenticationAction, LoginFacebook>(ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK),
@@ -28,7 +29,7 @@ const loginFacebookEpic: Epic<AuthenticationAction, LoginFacebookSuccess|LoginFa
 const getUserInfoFacebookEpic: Epic<AuthenticationAction, GetUserInfoFacebookSuccess|GetUserInfoFacebookError, AuthenticationState> = (action$) => action$.pipe(
   ofType<AuthenticationAction, LoginFacebookSuccess>(ActionTypes.AUTHENTICATION_LOGIN_FACEBOOK_SUCCESS),
   mergeMap(loginFacebookSuccess => 
-    new Observable<GetUserInfoResponse>(observer => FB.api(
+    new Observable<GetUserInfoResponse>(observer => FB.api<any, UserInfo>(
       `/${loginFacebookSuccess.response.authResponse.userID}/`, 
       { 
         fields: [

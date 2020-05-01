@@ -1,8 +1,7 @@
-import { AuthenticationState } from '../state';
 import { AuthenticationAction } from '../actions/authentication';
 import { ActionTypes } from '../constants';
-import { UserInfo, Error } from '../models/facebook';
-import { number } from 'prop-types';
+import { Error, UserInfo } from '../models/facebook';
+import { AuthenticationState } from '../state';
 
 const initialState: AuthenticationState = {
   isAuthenticated: false,
@@ -46,7 +45,7 @@ function getUserInfoFacebookSuccess(state: AuthenticationState, userInfo: UserIn
     ...state,
     user: {
       id: 0,
-      facebookId: new Number(userInfo.id).valueOf(),
+      facebookId: +userInfo.id,
       firstName: userInfo.first_name || '',
       lastName: userInfo.last_name || '',
       email: userInfo.email,

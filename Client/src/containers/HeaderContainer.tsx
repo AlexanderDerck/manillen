@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { State } from '../state';
-import { Header } from '../components/Header';
 import { loginFacebook, LoginFacebook, LogoutFacebook, logoutFacebook } from '../actions';
+import { Header } from '../components';
 import { User } from '../models/User';
+import { State } from '../state';
 
 export interface StateProps {
   isAuthenticated: boolean,

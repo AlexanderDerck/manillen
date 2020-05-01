@@ -1,17 +1,16 @@
 import React from 'react';
-import { HandContainer } from '../../containers/HandContainer';
-import { Column, Row } from '../_common/Grid';
-import { HandBack } from '../Hand';
 import { StateProps } from '../../containers/GameContainer';
-import styles from './Game.module.scss';
+import { HandContainer } from '../../containers/HandContainer';
 import { GameField } from '../GameField/GameField';
+import { HandBack } from '../Hand';
+import styles from './Game.module.scss';
 
 export interface GameProps extends StateProps { };
 
 /**
  * The full game with all the different player hands and gamefield in the middle
  */
-const Game: React.SFC<GameProps> = props => {
+export const Game: React.SFC<GameProps> = props => {
   return (
     <div className={styles.container}>
 
@@ -52,5 +51,3 @@ const Game: React.SFC<GameProps> = props => {
     </div>
   );
 };
-
-export { Game };
