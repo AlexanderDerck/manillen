@@ -1,0 +1,20 @@
+
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": ["*.html", "*.json", "*.actions.ts", "**/epics/**/*.ts", "*.saga.ts"],
+      "options": {
+        "printWidth": 150
+      }
+    },
+    {
+      "files": "*.ts",
+      "options": {
+        "quoteProps": "consistent"
+      }
+    }
+  ]
+}
