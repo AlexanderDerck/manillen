@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { Game } from '../components';
 import { Card } from '../models';
-import { State } from '../state';
+import { RootState } from '../store/root.state';
 
 export interface StateProps {
   // Number of cards for the opponent hands
@@ -16,7 +16,7 @@ export interface StateProps {
   opponent2PlayedCard?: Card
 };
 
-const mapStateToProps = (state: State): StateProps => ({
+const mapStateToProps = (state: RootState): StateProps => ({
   fellowPlayerCards: state.game.fellowPlayerCards,
   opponent1Cards: state.game.opponent1Cards,
   opponent2Cards: state.game.opponent2Cards,

@@ -1,22 +1,21 @@
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { loginFacebook, LoginFacebook, LogoutFacebook, logoutFacebook } from '../actions';
 import { Header } from '../components';
 import { User } from '../models/User';
-import { State } from '../state';
+import { loginFacebook, logoutFacebook } from '../store';
+import { RootState } from '../store/root.state';
 
 export interface StateProps {
   isAuthenticated: boolean,
   user?: User
 };
-const mapStateToProps = (state: State): StateProps => ({
-    isAuthenticated: state.authentication.isAuthenticated,
-    user: state.authentication.user
+const mapStateToProps = (state: RootState): StateProps => ({
+    isAuthenticated: state.user.isAuthenticated,
+    user: state.user.user
 });
 
 export interface DispatchProps {
-  login: Dispatch<LoginFacebook>,
-  logout: Dispatch<LogoutFacebook>
+  login: () => void,
+  logout: () => void
 };
 const mapDispatchToProps = (dispatch): DispatchProps => ({
   login: () => dispatch(loginFacebook()),

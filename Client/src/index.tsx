@@ -5,10 +5,9 @@ import { Provider } from 'react-redux';
 import { App } from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { initializeFacebookSdk } from './services/authentication';
-import configureStore from './store';
+import { store } from './store/store';
 
-const store = configureStore();
-initializeFacebookSdk(store);
+initializeFacebookSdk(store as any);
 
 ReactDOM.render( 
   <Provider store={store}>
