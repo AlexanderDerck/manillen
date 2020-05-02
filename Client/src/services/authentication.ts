@@ -1,4 +1,5 @@
 import { Store } from 'redux';
+import { environment } from '../environment';
 import { loginFacebookSuccess } from '../store';
 
 interface Window {
@@ -34,7 +35,7 @@ export function initializeFacebookSdk(store: Store): void {
      * See: https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
      */
     FB.init({
-      appId      : '492331311256888',
+      appId      : environment.appId,
       cookie     : true,
       xfbml      : true,
       version    : 'v3.2',
