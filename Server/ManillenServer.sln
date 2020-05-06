@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Common", "1. Common", "{8EF1EBC4-067D-444F-802F-2E1AF44C72E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{CCE11CF2-54F4-4233-A58E-DE81D795D455}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Database", "3. Database", "{73483859-1C71-4D61-8DE2-1354184D97F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Application", "4. Application", "{3997C361-B690-4721-9BC5-42B702A5E714}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Host", "5. Host", "{2FE9829E-3DDA-4E39-86F7-F89019A3D80A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManillenHub", ".\ManillenHub\ManillenHub.csproj", "{29E09AFE-DDD4-4B07-90E8-EA0B8FFCCDA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29E09AFE-DDD4-4B07-90E8-EA0B8FFCCDA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E09AFE-DDD4-4B07-90E8-EA0B8FFCCDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E09AFE-DDD4-4B07-90E8-EA0B8FFCCDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E09AFE-DDD4-4B07-90E8-EA0B8FFCCDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29E09AFE-DDD4-4B07-90E8-EA0B8FFCCDA3} = {2FE9829E-3DDA-4E39-86F7-F89019A3D80A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0997B06F-FAFB-484E-9376-F55EE29FB721}
+	EndGlobalSection
+EndGlobal

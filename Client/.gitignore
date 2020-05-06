@@ -2,9 +2,6 @@
 
 /redux-devtools
 
-# Editor
-/.vscode
-
 # dependencies
 /node_modules
 
