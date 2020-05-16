@@ -43,10 +43,7 @@ namespace ManillenHub
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<ChatHub>("/chathub");
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapHub<GameHub>("/gamehub");
             });
         }
     }
