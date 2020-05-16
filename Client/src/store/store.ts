@@ -1,6 +1,6 @@
 import { createEpicMiddleware } from 'redux-observable';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { gameActionCreatorMap, userActionCreatorMap } from './actions';
+import { chatActionCreatorMap, gameActionCreatorMap, userActionCreatorMap } from './actions';
 import { rootEpic } from './root.epic';
 import { rootReducer } from './root.reducer';
 import { initialRootState } from './root.state';
@@ -16,6 +16,7 @@ export const store = configureStore({
   ],
   devTools: {
     actionCreators: {
+      ...chatActionCreatorMap,
       ...gameActionCreatorMap,
       ...userActionCreatorMap
     }

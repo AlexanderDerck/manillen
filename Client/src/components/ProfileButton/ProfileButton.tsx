@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Avatar, Button, Menu, MenuItem } from '@material-ui/core';
 import { Routes } from '../../constants';
-import { User } from '../../models/User';
+import { User } from '../../models';
 import styles from './ProfileButton.module.scss';
 
 export interface ProfileButtonProps {

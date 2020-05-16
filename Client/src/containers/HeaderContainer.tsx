@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Header } from '../components';
-import { User } from '../models/User';
+import { User } from '../models';
 import { loginFacebook, logoutFacebook } from '../store';
 import { RootState } from '../store/root.state';
 

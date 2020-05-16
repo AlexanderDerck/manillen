@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Routes } from '../../constants';
 import { DispatchProps, StateProps } from '../../containers/HeaderContainer';
-import { User } from '../../models/User';
+import { User } from '../../models';
 import { LoginButton } from '../LoginButton/LoginButton';
 import { ProfileButton } from '../ProfileButton/ProfileButton';
 import styles from './Header.module.scss';
